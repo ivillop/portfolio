@@ -1,0 +1,627 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raden Akbar A. Gumilang</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Nav -->
+    <nav id="navbar">
+      <div class="nav-logo"><span></span></div>
+      <ul class="nav-links">
+        <!-- <li><a href="#about">Tentang</a></li> -->
+        <li><a href="#skills">Keahlian</a></li>
+        <li><a href="#projects">Proyek</a></li>
+        <li><a href="#experience">Pengalaman</a></li>
+        <li><a href="#contact">Kontak</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <!-- <a href="#about" class="mobile-link">Tentang</a> -->
+      <a href="#skills" class="mobile-link">Keahlian</a>
+      <a href="#projects" class="mobile-link">Proyek</a>
+      <a href="#experience" class="mobile-link">Pengalaman</a>
+      <a href="#contact" class="mobile-link">Kontak</a>
+    </div>
+
+    <!-- Hero -->
+    <section id="hero">
+      <div class="hero-inner">
+        <div class="hero-left">
+          <p class="hero-eyebrow">// Halo, saya</p>
+          <h1 class="hero-name">Raden Akbar<br /><em>Agung Gumilang </em></h1>
+          <div class="hero-terminal">
+            <span class="prompt">$</span>
+            <span id="typed-text"></span><span class="cursor"></span>
+          </div>
+          <p class="hero-desc">
+            Full Stack Developer dengan pengalaman membangun sistem keuangan
+            pemerintah dan enterprise menggunakan Java Spring Boot, Go, Angular,
+            dan Oracle Database. Berpengalaman sebagai mentor dan fasilitator
+            coding camp skala nasional, serta aktif berkontribusi dalam
+            organisasi pengembang perangkat lunak.
+          </p>
+          <div class="hero-cta">
+            <a href="#projects" class="btn btn-primary">Lihat Proyek →</a>
+            <a href="#contact" class="btn btn-ghost">Hubungi Saya</a>
+          </div>
+        </div>
+
+        <!-- FOTO PROFIL -->
+        <div class="hero-photo-wrap">
+          <div class="photo-frame">
+            <img src="profile.JPG" alt="Foto Profile" />
+          </div>
+        </div>
+      </div>
+      <div class="scroll-hint">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <!-- <section id="about">
+      <div class="about-grid reveal">
+        <div>
+          <div class="section-label">01 &mdash; Tentang Saya</div>
+          <h2 class="about-title">
+            Kode yang <span>bekerja nyata</span> di lapangan
+          </h2>
+          <p class="about-text">
+            Saya full-stack developer yang fokus pada sistem informasi keuangan
+            daerah dan aplikasi enterprise skala besar. Pengalaman saya mencakup
+            backend (Java Spring Boot, Go Gin+GORM) dan frontend modern
+            (Angular) dengan basis data Oracle.
+          </p>
+          <p class="about-text">
+            Proyek-proyek saya langsung digunakan oleh instansi pemerintah dan
+            BUMD regional — dari pelaporan keuangan BLUD hingga sistem
+            autentikasi multi-tenant yang aman.
+          </p>
+          <div class="about-stats">
+            <div class="stat">
+              <span class="stat-num">3+</span
+              ><span class="stat-label">Tahun Pengalaman</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">10+</span
+              ><span class="stat-label">Modul Sistem</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">5</span
+              ><span class="stat-label">Stack Teknologi</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">2</span
+              ><span class="stat-label">Sistem Aktif</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="code-card">
+            <div class="bar">
+              <div class="dot r"></div>
+              <div class="dot y"></div>
+              <div class="dot g"></div>
+            </div>
+            <div><span class="c-comment">// developer.profile.go</span></div>
+            <br />
+            <div>
+              <span class="c-key">type</span>
+              <span class="c-fn">Developer</span>
+              <span class="c-key">struct</span> {
+            </div>
+            <div>
+              &nbsp;&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c-str"
+                >"Akbar"</span
+              >
+            </div>
+            <div>
+              &nbsp;&nbsp;Role&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c-str"
+                >"Full-Stack Dev"</span
+              >
+            </div>
+            <div>
+              &nbsp;&nbsp;Location&nbsp;<span class="c-str">"Bandung, ID"</span>
+            </div>
+            <div>
+              &nbsp;&nbsp;Backend&nbsp;&nbsp;<span class="c-val">[]string</span
+              >{
+            </div>
+            <div>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="c-str"
+                >"Java Spring Boot"</span
+              >,
+            </div>
+            <div>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="c-str">"Go Gin + GORM"</span
+              >,
+            </div>
+            <div>&nbsp;&nbsp;}</div>
+            <div>
+              &nbsp;&nbsp;Frontend&nbsp;<span class="c-str">"Angular"</span>
+            </div>
+            <div>
+              &nbsp;&nbsp;Database&nbsp;<span class="c-str">"Oracle DB"</span>
+            </div>
+            <div>
+              &nbsp;&nbsp;Focus&nbsp;&nbsp;&nbsp;&nbsp;<span class="c-str"
+                >"Gov Finance Systems"</span
+              >
+            </div>
+            <div>}</div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- Skills -->
+    <section id="skills">
+      <div class="inner">
+        <div class="reveal">
+          <div class="section-label">01 &mdash; Keahlian</div>
+          <h2 class="section-title">Teknologi yang saya kuasai</h2>
+          <div class="divider"></div>
+        </div>
+
+        <!-- Baris 1: Bahasa Pemrograman + Framework -->
+        <div class="tech-row reveal">
+          <div class="tech-group">
+            <div class="tech-group-label">Bahasa Pemrograman</div>
+            <div class="tech-grid">
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                  alt="JavaScript"
+                />
+                <span>JavaScript</span>
+              </div>
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg"
+                  alt="PHP"
+                />
+                <span>PHP</span>
+              </div>
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                  alt="Python"
+                />
+                <span>Python</span>
+              </div>
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
+                  alt="Java"
+                />
+                <span>Java</span>
+              </div>
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg"
+                  alt="Golang"
+                />
+                <span>Golang</span>
+              </div>
+            </div>
+          </div>
+          <div class="tech-group">
+            <div class="tech-group-label">Framework</div>
+            <div class="tech-grid">
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg"
+                  alt="Angular"
+                />
+                <span>Angular</span>
+              </div>
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                  alt="React.js"
+                />
+                <span>React.js</span>
+              </div>
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg"
+                  alt="Vue.js"
+                />
+                <span>Vue.js</span>
+              </div>
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg"
+                  alt="Laravel"
+                />
+                <span>Laravel</span>
+              </div>
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg"
+                  alt="Spring Boot"
+                />
+                <span>Spring Boot</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Baris 2: Database + Tools & Platform -->
+        <div class="tech-row reveal">
+          <div class="tech-group">
+            <div class="tech-group-label">Database</div>
+            <div class="tech-grid">
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg"
+                  alt="Oracle"
+                />
+                <span>Oracle</span>
+              </div>
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+                  alt="MySQL"
+                />
+                <span>MySQL</span>
+              </div>
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+                  alt="PostgreSQL"
+                />
+                <span>PostgreSQL</span>
+              </div>
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg"
+                  alt="SQLite"
+                />
+                <span>SQLite</span>
+              </div>
+            </div>
+          </div>
+          <div class="tech-group">
+            <div class="tech-group-label">Tools &amp; Platform</div>
+            <div class="tech-grid">
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+                  alt="Git"
+                />
+                <span>Git</span>
+              </div>
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                  alt="GitHub"
+                />
+                <span>GitHub</span>
+              </div>
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg"
+                  alt="GitLab"
+                />
+                <span>GitLab</span>
+              </div>
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
+                  alt="Figma"
+                />
+                <span>Figma</span>
+              </div>
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
+                  alt="VS Code"
+                />
+                <span>VS Code</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <div class="reveal">
+        <div class="section-label">02 &mdash; Proyek</div>
+        <h2 class="section-title">Yang pernah saya bangun</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="projects-grid">
+        <!-- KeloLa Keuangan — featured card full width -->
+        <div class="project-card project-card-featured reveal">
+          <div class="project-screenshots">
+            <div class="screenshots-track">
+              <img
+                src="projek01-dashboard.png"
+                alt="Dashboard KeloLa Keuangan"
+              />
+              <img src="projek01-cetak.png" alt="Laporan Keuangan KeloLa" />
+              <img
+                src="projek01-transaksi.png"
+                alt="Transaksi KeloLa Keuangan"
+              />
+            </div>
+            <div class="screenshots-dots">
+              <button class="dot-btn active" data-idx="0"></button>
+              <button class="dot-btn" data-idx="1"></button>
+              <button class="dot-btn" data-idx="2"></button>
+            </div>
+          </div>
+          <div class="project-header" style="padding-top: 1.5rem">
+            <span class="project-num">PROJ_01</span>
+            <a
+              href="https://github.com/ivillop/finance-app"
+              target="_blank"
+              class="project-link"
+              title="Lihat di GitHub"
+              >↗ GitHub</a
+            >
+          </div>
+          <div class="project-body">
+            <div class="project-title">
+              KeloLa Keuangan — Personal Finance App
+            </div>
+            <div class="project-desc">
+              Aplikasi keuangan pribadi full-stack: catat pemasukan &amp;
+              pengeluaran, kelola kategori &amp; budget bulanan, lihat dashboard
+              grafik tren 6 bulan serta donut chart per kategori, dan
+              cetak/export laporan keuangan bulanan sebagai PDF langsung dari
+              browser.
+            </div>
+            <div class="project-feature-list">
+              <span class="pf-item">🔐 JWT Auth</span>
+              <span class="pf-item">📊 Dashboard &amp; Charts</span>
+              <span class="pf-item">💰 Budget Tracker</span>
+              <span class="pf-item">🖨️ Cetak PDF</span>
+              <span class="pf-item">📱 Responsive</span>
+            </div>
+            <div class="project-stack" style="margin-top: 1rem">
+              <span class="tag">Angular 17</span>
+              <span class="tag">Go Gin</span>
+              <span class="tag">GORM</span>
+              <span class="tag">SQLite</span>
+              <span class="tag">Chart.js</span>
+              <span class="tag">JWT</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+      <div class="reveal">
+        <div class="section-label">03 &mdash; Pengalaman</div>
+        <h2 class="section-title">Perjalanan karier</h2>
+        <div class="divider"></div>
+      </div>
+
+      <!-- Pengalaman Kerja -->
+      <div class="exp-category reveal">
+        <div class="exp-category-label">
+          <span class="exp-cat-icon">💼</span> Pengalaman Kerja
+        </div>
+        <div class="exp-list">
+          <div class="exp-item reveal">
+            <div class="exp-period">2026</div>
+            <div>
+              <div class="exp-role">Intern Full Stack Developer</div>
+              <div class="exp-company">
+                Tabel Data Informatika — via Maganghub Kemnaker Batch 3
+              </div>
+              <div class="exp-bullets">
+                <div class="exp-bullet">
+                  Mengembangkan fitur aplikasi menggunakan teknologi full stack
+                  dalam lingkungan kerja profesional.
+                </div>
+                <div class="exp-bullet">
+                  Berkolaborasi dengan tim lintas divisi untuk menyelesaikan
+                  kebutuhan pengembangan perangkat lunak.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="exp-item reveal">
+            <div class="exp-period">2026</div>
+            <div>
+              <div class="exp-role">Facilitator</div>
+              <div class="exp-company">
+                Coding Camp 2026 Powered by DBS Foundation – SMK
+              </div>
+              <div class="exp-bullets">
+                <div class="exp-bullet">
+                  Memfasilitasi pembelajaran pemrograman bagi siswa SMK dalam
+                  program coding camp berskala nasional.
+                </div>
+                <div class="exp-bullet">
+                  Membimbing peserta dalam memahami konsep pengembangan web dan
+                  problem solving.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="exp-item reveal">
+            <div class="exp-period">2025</div>
+            <div>
+              <div class="exp-role">Mentor Class</div>
+              <div class="exp-company">
+                Coding Camp 2025 Powered by DBS Foundation – Universitas
+              </div>
+              <div class="exp-bullets">
+                <div class="exp-bullet">
+                  Menjadi mentor bagi mahasiswa peserta coding camp dalam bidang
+                  pengembangan front-end dan back-end.
+                </div>
+                <div class="exp-bullet">
+                  Memberikan bimbingan teknis dan review kode peserta secara
+                  berkala.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="exp-item reveal">
+            <div class="exp-period">2023</div>
+            <div>
+              <div class="exp-role">Studi Independen Bersertifikat (SIB)</div>
+              <div class="exp-company">Dicoding – Cycle 5</div>
+              <div class="exp-bullets">
+                <div class="exp-bullet">
+                  Menyelesaikan program Pengembangan Front-End Web dan Back-End
+                  secara intensif.
+                </div>
+                <div class="exp-bullet">
+                  Membangun proyek akhir berbasis web sebagai bagian dari
+                  penilaian kompetensi.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="exp-item reveal">
+            <div class="exp-period">2020</div>
+            <div>
+              <div class="exp-role">Intern Marketing &amp; Sales</div>
+              <div class="exp-company">Yanpro Land</div>
+              <div class="exp-bullets">
+                <div class="exp-bullet">
+                  Mendukung tim pemasaran dalam kegiatan promosi dan penjualan
+                  properti.
+                </div>
+                <div class="exp-bullet">
+                  Melakukan pendekatan kepada calon konsumen dan
+                  mendokumentasikan hasil prospek.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pendidikan -->
+      <div class="exp-category reveal">
+        <div class="exp-category-label">
+          <span class="exp-cat-icon">🎓</span> Pendidikan
+        </div>
+        <div class="exp-list">
+          <div class="exp-item reveal">
+            <div class="exp-period">2021 — 2025</div>
+            <div>
+              <div class="exp-role">Teknik Informatika</div>
+              <div class="exp-company">STMIK Mardira Indonesia</div>
+              <div class="exp-bullets">
+                <div class="exp-bullet">IPK: <strong>3.70 / 4.00</strong></div>
+              </div>
+            </div>
+          </div>
+          <div class="exp-item reveal">
+            <div class="exp-period">2017 — 2020</div>
+            <div>
+              <div class="exp-role">SMA</div>
+              <div class="exp-company">SMA Muhammadiyah 4 Margahayu</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Organisasi -->
+      <div class="exp-category reveal">
+        <div class="exp-category-label">
+          <span class="exp-cat-icon">🤝</span> Pengalaman Organisasi
+        </div>
+        <div class="exp-list">
+          <div class="exp-item reveal">
+            <div class="exp-period">2022 — 2024</div>
+            <div>
+              <div class="exp-role">Ketua Divisi Pemrograman</div>
+              <div class="exp-company">Creative Student Association</div>
+              <div class="exp-bullets">
+                <div class="exp-bullet">
+                  Memimpin divisi pemrograman dan mengoordinasikan kegiatan
+                  pengembangan skill anggota.
+                </div>
+                <div class="exp-bullet">
+                  Merancang dan melaksanakan program belajar coding untuk
+                  anggota aktif organisasi.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="exp-item reveal">
+            <div class="exp-period">2021 — 2022</div>
+            <div>
+              <div class="exp-role">Anggota</div>
+              <div class="exp-company">Creative Student Association</div>
+              <div class="exp-bullets">
+                <div class="exp-bullet">
+                  Berpartisipasi aktif dalam kegiatan organisasi dan proyek
+                  pengembangan perangkat lunak.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="inner reveal">
+        <div class="section-label" style="justify-content: center">
+          04 &mdash; Kontak
+        </div>
+        <h2 class="contact-title">Mari <span>bekerja sama</span></h2>
+        <p class="contact-sub">
+          Punya proyek menarik atau butuh developer berpengalaman di sistem
+          keuangan enterprise? Saya terbuka untuk diskusi.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:akbar@email.com" class="btn btn-primary"
+            >✉ Kirim Email</a
+          >
+        </div>
+        <div class="contact-links">
+          <a href="https://github.com/" target="_blank" class="contact-social"
+            >GitHub</a
+          >
+          <a href="https://linkedin.com/" target="_blank" class="contact-social"
+            >LinkedIn</a
+          >
+          <a href="https://wa.me/62" target="_blank" class="contact-social"
+            >WhatsApp</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-text">
+        © 2026 <span>Raden Akbar A. Gumilang</span> — Dibangun dengan HTML, CSS
+        & JS
+      </div>
+      <div class="footer-text">Bandung, <span>Jawa Barat</span> 🇮🇩</div>
+    </footer>
+    <script src="main.js"></script>
+  </body>
+</html>
