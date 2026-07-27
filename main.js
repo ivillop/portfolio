@@ -57,6 +57,128 @@ const observer = new IntersectionObserver(
 );
 document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 
+// ── Lightbox ──
+(function () {
+  const overlay = document.getElementById("lbOverlay");
+  const lbImg = document.getElementById("lbImg");
+  const lbCaption = document.getElementById("lbCaption");
+  const lbDots = document.getElementById("lbDots");
+  const btnClose = document.getElementById("lbClose");
+  const btnPrev = document.getElementById("lbPrev");
+  const btnNext = document.getElementById("lbNext");
+
+  if (!overlay) return;
+
+  // Kumpulkan semua gambar per gallery group
+  const galleries = {};
+  document.querySelectorAll(".gallery-img").forEach((img) => {
+    const group = img.dataset.gallery;
+    if (!galleries[group]) galleries[group] = [];
+    galleries[group].push({ src: img.src, alt: img.alt });
+  });
+
+  let activeGallery = null;
+  let activeIdx = 0;
+
+  function buildDots(count) {
+    lbDots.innerHTML = "";
+    for (let i = 0; i < count; i++) {
+      const d = document.createElement("button");
+      d.className = "lb-dot" + (i === activeIdx ? " active" : "");
+      d.setAttribute("aria-label", "Gambar " + (i + 1));
+      d.addEventListener("click", () => goTo(i));
+      lbDots.appendChild(d);
+    }
+  }
+
+  function setDots(idx) {
+    lbDots
+      .querySelectorAll(".lb-dot")
+      .forEach((d, i) => d.classList.toggle("active", i === idx));
+  }
+
+  function goTo(idx) {
+    const imgs = galleries[activeGallery];
+    if (!imgs) return;
+    idx = Math.max(0, Math.min(idx, imgs.length - 1));
+    activeIdx = idx;
+
+    lbImg.classList.add("fading");
+    setTimeout(() => {
+      lbImg.src = imgs[idx].src;
+      lbImg.alt = imgs[idx].alt;
+      lbCaption.textContent = imgs[idx].alt;
+      lbImg.classList.remove("fading");
+    }, 160);
+
+    setDots(idx);
+    btnPrev.disabled = idx === 0;
+    btnNext.disabled = idx === imgs.length - 1;
+  }
+
+  function open(gallery, idx) {
+    activeGallery = gallery;
+    activeIdx = idx;
+    overlay.classList.add("open");
+    document.body.style.overflow = "hidden";
+    buildDots(galleries[gallery].length);
+    goTo(idx);
+    btnClose.focus();
+  }
+
+  function close() {
+    overlay.classList.remove("open");
+    document.body.style.overflow = "";
+    lbImg.src = "";
+  }
+
+  // Klik gambar di card
+  document.querySelectorAll(".gallery-img").forEach((img) => {
+    img.addEventListener("click", () => {
+      open(img.dataset.gallery, parseInt(img.dataset.idx));
+    });
+  });
+
+  // Tombol expand
+  document.querySelectorAll(".screenshots-expand").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      open(btn.dataset.gallery, parseInt(btn.dataset.idx));
+    });
+  });
+
+  btnClose.addEventListener("click", close);
+  btnPrev.addEventListener("click", () => goTo(activeIdx - 1));
+  btnNext.addEventListener("click", () => goTo(activeIdx + 1));
+
+  // Klik backdrop tutup modal
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) close();
+  });
+
+  // Keyboard
+  document.addEventListener("keydown", (e) => {
+    if (!overlay.classList.contains("open")) return;
+    if (e.key === "Escape") close();
+    if (e.key === "ArrowLeft") goTo(activeIdx - 1);
+    if (e.key === "ArrowRight") goTo(activeIdx + 1);
+  });
+
+  // Touch swipe
+  let touchStartX = 0;
+  overlay.addEventListener(
+    "touchstart",
+    (e) => {
+      touchStartX = e.touches[0].clientX;
+    },
+    { passive: true },
+  );
+  overlay.addEventListener("touchend", (e) => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 50) goTo(activeIdx + (dx < 0 ? 1 : -1));
+  });
+})();
+
 // ── Screenshot Slider ──
 (function () {
   const track = document.querySelector(".screenshots-track");

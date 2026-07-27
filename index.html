@@ -352,15 +352,27 @@
         <!-- KeloLa Keuangan — featured card full width -->
         <div class="project-card project-card-featured reveal">
           <div class="project-screenshots">
-            <div class="screenshots-track">
+            <div class="screenshots-track" data-gallery="kelola">
               <img
                 src="projek01-dashboard.png"
                 alt="Dashboard KeloLa Keuangan"
+                data-gallery="kelola"
+                data-idx="0"
+                class="gallery-img"
               />
-              <img src="projek01-cetak.png" alt="Laporan Keuangan KeloLa" />
+              <img
+                src="projek01-cetak.png"
+                alt="Laporan Keuangan KeloLa"
+                data-gallery="kelola"
+                data-idx="1"
+                class="gallery-img"
+              />
               <img
                 src="projek01-transaksi.png"
                 alt="Transaksi KeloLa Keuangan"
+                data-gallery="kelola"
+                data-idx="2"
+                class="gallery-img"
               />
             </div>
             <div class="screenshots-dots">
@@ -368,6 +380,28 @@
               <button class="dot-btn" data-idx="1"></button>
               <button class="dot-btn" data-idx="2"></button>
             </div>
+            <button
+              class="screenshots-expand"
+              data-gallery="kelola"
+              data-idx="0"
+              aria-label="Buka galeri fullscreen"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M8 3H5a2 2 0 0 0-2 2v3" />
+                <path d="M21 8V5a2 2 0 0 0-2-2h-3" />
+                <path d="M3 16v3a2 2 0 0 0 2 2h3" />
+                <path d="M16 21h3a2 2 0 0 0 2-2v-3" />
+              </svg>
+            </button>
           </div>
           <div class="project-header" style="padding-top: 1.5rem">
             <span class="project-num">PROJ_01</span>
@@ -631,6 +665,28 @@
       </div>
       <div class="footer-text">Bandung, <span>Jawa Barat</span> 🇮🇩</div>
     </footer>
+    <!-- Lightbox Modal -->
+    <div
+      class="lb-overlay"
+      id="lbOverlay"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Galeri Gambar"
+    >
+      <button class="lb-close" id="lbClose" aria-label="Tutup">&#x2715;</button>
+      <button class="lb-arrow lb-prev" id="lbPrev" aria-label="Sebelumnya">
+        &#8592;
+      </button>
+      <div class="lb-content">
+        <img class="lb-img" id="lbImg" src="" alt="" />
+        <div class="lb-caption" id="lbCaption"></div>
+        <div class="lb-dots" id="lbDots"></div>
+      </div>
+      <button class="lb-arrow lb-next" id="lbNext" aria-label="Selanjutnya">
+        &#8594;
+      </button>
+    </div>
+
     <script src="main.js"></script>
   </body>
 </html>
