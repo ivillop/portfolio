@@ -57,6 +57,40 @@ const observer = new IntersectionObserver(
 );
 document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 
+// ── Screenshot Slider ──
+(function () {
+  const track = document.querySelector(".screenshots-track");
+  const dots = document.querySelectorAll(".dot-btn");
+  if (!track || !dots.length) return;
+
+  let current = 0,
+    timer;
+
+  function goTo(idx) {
+    current = idx;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    dots.forEach((d, i) => d.classList.toggle("active", i === current));
+    // Sync data-idx on visible image so lightbox opens correctly
+    track.querySelectorAll(".gallery-img").forEach((img, i) => {
+      img.dataset.idx = i;
+    });
+  }
+
+  function startAuto() {
+    timer = setInterval(() => goTo((current + 1) % dots.length), 3000);
+  }
+
+  dots.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      clearInterval(timer);
+      goTo(parseInt(btn.dataset.idx));
+      startAuto();
+    });
+  });
+
+  startAuto();
+})();
+
 // ── Lightbox ──
 (function () {
   const overlay = document.getElementById("lbOverlay");
@@ -66,16 +100,17 @@ document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
   const btnClose = document.getElementById("lbClose");
   const btnPrev = document.getElementById("lbPrev");
   const btnNext = document.getElementById("lbNext");
-
   if (!overlay) return;
 
-  // Kumpulkan semua gambar per gallery group
+  // Collect all images per gallery group (project screenshots + certificates)
   const galleries = {};
-  document.querySelectorAll(".gallery-img").forEach((img) => {
-    const group = img.dataset.gallery;
-    if (!galleries[group]) galleries[group] = [];
-    galleries[group].push({ src: img.src, alt: img.alt });
-  });
+  document
+    .querySelectorAll(".gallery-img, .cert-gallery-img")
+    .forEach((img) => {
+      const group = img.dataset.gallery;
+      if (!galleries[group]) galleries[group] = [];
+      galleries[group].push({ src: img.src, alt: img.alt });
+    });
 
   let activeGallery = null;
   let activeIdx = 0;
@@ -102,7 +137,6 @@ document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
     if (!imgs) return;
     idx = Math.max(0, Math.min(idx, imgs.length - 1));
     activeIdx = idx;
-
     lbImg.classList.add("fading");
     setTimeout(() => {
       lbImg.src = imgs[idx].src;
@@ -110,7 +144,6 @@ document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
       lbCaption.textContent = imgs[idx].alt;
       lbImg.classList.remove("fading");
     }, 160);
-
     setDots(idx);
     btnPrev.disabled = idx === 0;
     btnNext.disabled = idx === imgs.length - 1;
@@ -118,7 +151,6 @@ document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 
   function open(gallery, idx) {
     activeGallery = gallery;
-    activeIdx = idx;
     overlay.classList.add("open");
     document.body.style.overflow = "hidden";
     buildDots(galleries[gallery].length);
@@ -132,14 +164,27 @@ document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
     lbImg.src = "";
   }
 
-  // Klik gambar di card
+  // Click on project screenshot images
   document.querySelectorAll(".gallery-img").forEach((img) => {
-    img.addEventListener("click", () => {
-      open(img.dataset.gallery, parseInt(img.dataset.idx));
+    img.addEventListener("click", () =>
+      open(img.dataset.gallery, parseInt(img.dataset.idx)),
+    );
+  });
+
+  // Click on certificate images or entire cert card
+  document.querySelectorAll(".cert-gallery-img").forEach((img) => {
+    img.addEventListener("click", () =>
+      open(img.dataset.gallery, parseInt(img.dataset.idx)),
+    );
+  });
+  document.querySelectorAll(".cert-card").forEach((card) => {
+    card.addEventListener("click", () => {
+      const img = card.querySelector(".cert-gallery-img");
+      if (img) open(img.dataset.gallery, parseInt(img.dataset.idx));
     });
   });
 
-  // Tombol expand
+  // Expand button (project card)
   document.querySelectorAll(".screenshots-expand").forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -151,12 +196,12 @@ document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
   btnPrev.addEventListener("click", () => goTo(activeIdx - 1));
   btnNext.addEventListener("click", () => goTo(activeIdx + 1));
 
-  // Klik backdrop tutup modal
+  // Click outside image closes modal
   overlay.addEventListener("click", (e) => {
     if (e.target === overlay) close();
   });
 
-  // Keyboard
+  // Keyboard navigation
   document.addEventListener("keydown", (e) => {
     if (!overlay.classList.contains("open")) return;
     if (e.key === "Escape") close();
@@ -177,40 +222,6 @@ document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
     const dx = e.changedTouches[0].clientX - touchStartX;
     if (Math.abs(dx) > 50) goTo(activeIdx + (dx < 0 ? 1 : -1));
   });
-})();
-
-// ── Screenshot Slider ──
-(function () {
-  const track = document.querySelector(".screenshots-track");
-  const dots = document.querySelectorAll(".dot-btn");
-  if (!track || !dots.length) return;
-
-  let current = 0;
-  let timer;
-
-  function goTo(idx) {
-    current = idx;
-    track.style.transform = `translateX(-${current * 100}%)`;
-    dots.forEach((d, i) => d.classList.toggle("active", i === current));
-  }
-
-  function next() {
-    goTo((current + 1) % dots.length);
-  }
-
-  function startAuto() {
-    timer = setInterval(next, 3000);
-  }
-
-  dots.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      clearInterval(timer);
-      goTo(parseInt(btn.dataset.idx));
-      startAuto();
-    });
-  });
-
-  startAuto();
 })();
 
 // ── Navbar ──

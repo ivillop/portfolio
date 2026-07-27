@@ -17,10 +17,10 @@
     <nav id="navbar">
       <div class="nav-logo"><span></span></div>
       <ul class="nav-links">
-        <!-- <li><a href="#about">Tentang</a></li> -->
         <li><a href="#skills">Keahlian</a></li>
         <li><a href="#projects">Proyek</a></li>
         <li><a href="#experience">Pengalaman</a></li>
+        <li><a href="#certifications">Sertifikasi</a></li>
         <li><a href="#contact">Kontak</a></li>
       </ul>
       <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -30,10 +30,10 @@
 
     <!-- Mobile menu -->
     <div class="mobile-menu" id="mobileMenu">
-      <!-- <a href="#about" class="mobile-link">Tentang</a> -->
       <a href="#skills" class="mobile-link">Keahlian</a>
       <a href="#projects" class="mobile-link">Proyek</a>
       <a href="#experience" class="mobile-link">Pengalaman</a>
+      <a href="#certifications" class="mobile-link">Sertifikasi</a>
       <a href="#contact" class="mobile-link">Kontak</a>
     </div>
 
@@ -356,23 +356,23 @@
               <img
                 src="projek01-dashboard.png"
                 alt="Dashboard KeloLa Keuangan"
+                class="gallery-img"
                 data-gallery="kelola"
                 data-idx="0"
-                class="gallery-img"
               />
               <img
                 src="projek01-cetak.png"
                 alt="Laporan Keuangan KeloLa"
+                class="gallery-img"
                 data-gallery="kelola"
                 data-idx="1"
-                class="gallery-img"
               />
               <img
                 src="projek01-transaksi.png"
                 alt="Transaksi KeloLa Keuangan"
+                class="gallery-img"
                 data-gallery="kelola"
                 data-idx="2"
-                class="gallery-img"
               />
             </div>
             <div class="screenshots-dots">
@@ -618,11 +618,107 @@
       </div>
     </section>
 
+    <!-- Sertifikasi -->
+    <section id="certifications">
+      <div class="reveal">
+        <div class="section-label">04 &mdash; Sertifikasi</div>
+        <h2 class="section-title">Sertifikat yang saya miliki</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="cert-grid reveal">
+        <div class="cert-card" data-cert-gallery="certs" data-cert-idx="0">
+          <div class="cert-img-wrap">
+            <img
+              src="sertif-mentor-dbs.jpg"
+              alt="Certificate of Appreciation — Mentor Coding Camp 2025 DBS Foundation"
+              class="cert-img cert-gallery-img"
+              data-gallery="certs"
+              data-idx="0"
+            />
+            <div class="cert-overlay">
+              <span class="cert-zoom-icon">🔍 Lihat</span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-title">Certificate of Appreciation</div>
+            <div class="cert-issuer">Dicoding × DBS Foundation</div>
+            <div class="cert-meta">Mentor · Coding Camp 2025 · Jul 2025</div>
+          </div>
+        </div>
+
+        <div class="cert-card" data-cert-gallery="certs" data-cert-idx="1">
+          <div class="cert-img-wrap">
+            <img
+              src="sertif-fasilitator-dbs.jpg"
+              alt="Certificate of Appreciation — Facilitator Coding Camp 2026 DBS Foundation"
+              class="cert-img cert-gallery-img"
+              data-gallery="certs"
+              data-idx="1"
+            />
+            <div class="cert-overlay">
+              <span class="cert-zoom-icon">🔍 Lihat</span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-title">Certificate of Appreciation</div>
+            <div class="cert-issuer">Dicoding × DBS Foundation</div>
+            <div class="cert-meta">
+              Facilitator · Coding Camp 2026 · Mei 2026
+            </div>
+          </div>
+        </div>
+
+        <div class="cert-card" data-cert-gallery="certs" data-cert-idx="2">
+          <div class="cert-img-wrap">
+            <img
+              src="sertif-maganghub.jpg"
+              alt="Sertifikat Maganghub Kemnaker — Full Stack Developer Internship"
+              class="cert-img cert-gallery-img"
+              data-gallery="certs"
+              data-idx="2"
+            />
+            <div class="cert-overlay">
+              <span class="cert-zoom-icon">🔍 Lihat</span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-title">Sertifikat Pemagangan</div>
+            <div class="cert-issuer">Kemnaker × Tabel Data Informatika</div>
+            <div class="cert-meta">
+              Full Stack Developer · Batch 3 · Jun 2026
+            </div>
+          </div>
+        </div>
+
+        <div class="cert-card" data-cert-gallery="certs" data-cert-idx="3">
+          <div class="cert-img-wrap">
+            <img
+              src="sertif-dicoding-sib.jpg"
+              alt="Sertifikat Kelulusan SIB Dicoding — Front-End Web & Back-End"
+              class="cert-img cert-gallery-img"
+              data-gallery="certs"
+              data-idx="3"
+            />
+            <div class="cert-overlay">
+              <span class="cert-zoom-icon">🔍 Lihat</span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-title">Sertifikat Kelulusan SIB</div>
+            <div class="cert-issuer">Dicoding × Kampus Merdeka</div>
+            <div class="cert-meta">
+              Front-End &amp; Back-End · Angkatan 5 · Des 2023
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Contact -->
     <section id="contact">
       <div class="inner reveal">
         <div class="section-label" style="justify-content: center">
-          04 &mdash; Kontak
+          05 &mdash; Kontak
         </div>
         <h2 class="contact-title">Mari <span>bekerja sama</span></h2>
         <p class="contact-sub">
@@ -665,6 +761,7 @@
       </div>
       <div class="footer-text">Bandung, <span>Jawa Barat</span> 🇮🇩</div>
     </footer>
+
     <!-- Lightbox Modal -->
     <div
       class="lb-overlay"

@@ -673,6 +673,7 @@ section {
   object-fit: cover;
   object-position: top;
   display: block;
+  cursor: zoom-in;
 }
 .screenshots-dots {
   position: absolute;
@@ -1063,12 +1064,107 @@ footer {
   }
 }
 
-/* ── Gallery image cursor ── */
-.gallery-img {
+/* ── Certifications ── */
+#certifications {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 7rem 4rem;
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.cert-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--bg2);
+  transition: all 0.25s;
+  cursor: pointer;
+}
+.cert-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.1);
+}
+
+.cert-img-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: var(--bg3);
+}
+.cert-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  transition: transform 0.35s ease;
+}
+.cert-card:hover .cert-img {
+  transform: scale(1.04);
+}
+
+.cert-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(37, 99, 235, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+.cert-card:hover .cert-overlay {
+  opacity: 1;
+}
+.cert-zoom-icon {
+  color: #fff;
+  font-size: 0.9rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 0.45rem 1rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.cert-info {
+  padding: 1rem 1.1rem 1.1rem;
+}
+.cert-title {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.2rem;
+}
+.cert-issuer {
+  font-size: 0.78rem;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+.cert-meta {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--muted);
+  letter-spacing: 0.03em;
+}
+
+/* Lightbox — gallery-img cursor */
+.gallery-img,
+.cert-gallery-img {
   cursor: zoom-in;
 }
 
-/* ── Expand button (fullscreen icon di atas screenshot) ── */
+/* Expand button */
 .screenshots-expand {
   position: absolute;
   top: 0.6rem;
@@ -1091,7 +1187,7 @@ footer {
   opacity: 1;
 }
 
-/* ── Lightbox Overlay ── */
+/* Lightbox Overlay */
 .lb-overlay {
   position: fixed;
   inset: 0;
@@ -1100,7 +1196,6 @@ footer {
   display: none;
   align-items: center;
   justify-content: center;
-  gap: 0;
   backdrop-filter: blur(6px);
   animation: lbFadeIn 0.2s ease;
 }
@@ -1116,7 +1211,6 @@ footer {
   }
 }
 
-/* Close button */
 .lb-close {
   position: absolute;
   top: 1.25rem;
@@ -1139,7 +1233,6 @@ footer {
   background: rgba(255, 255, 255, 0.22);
 }
 
-/* Arrow buttons */
 .lb-arrow {
   flex-shrink: 0;
   background: rgba(255, 255, 255, 0.1);
@@ -1174,7 +1267,6 @@ footer {
   cursor: default;
 }
 
-/* Content area */
 .lb-content {
   display: flex;
   flex-direction: column;
@@ -1184,7 +1276,6 @@ footer {
   max-height: 90vh;
 }
 
-/* Image */
 .lb-img {
   max-width: 100%;
   max-height: 78vh;
@@ -1199,16 +1290,14 @@ footer {
   opacity: 0;
 }
 
-/* Caption */
 .lb-caption {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.75);
   font-family: var(--font-body);
   font-size: 0.82rem;
   text-align: center;
   min-height: 1.2em;
 }
 
-/* Dot indicators inside lightbox */
 .lb-dots {
   display: flex;
   gap: 0.45rem;
@@ -1230,8 +1319,14 @@ footer {
   transform: scale(1.35);
 }
 
-/* Mobile adjustments */
 @media (max-width: 768px) {
+  #certifications {
+    padding: 5rem 1.5rem;
+  }
+  .cert-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
   .lb-arrow {
     width: 38px;
     height: 38px;
