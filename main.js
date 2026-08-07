@@ -57,23 +57,18 @@ const observer = new IntersectionObserver(
 );
 document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 
-// ── Screenshot Slider ──
-(function () {
-  const track = document.querySelector(".screenshots-track");
-  const dots = document.querySelectorAll(".dot-btn");
+// ── Screenshot Sliders (independen per proyek) ──
+function initSlider(trackSelector, dotSelector) {
+  const track = document.querySelector(trackSelector);
+  const dots  = document.querySelectorAll(dotSelector);
   if (!track || !dots.length) return;
 
-  let current = 0,
-    timer;
+  let current = 0, timer;
 
   function goTo(idx) {
     current = idx;
     track.style.transform = `translateX(-${current * 100}%)`;
     dots.forEach((d, i) => d.classList.toggle("active", i === current));
-    // Sync data-idx on visible image so lightbox opens correctly
-    track.querySelectorAll(".gallery-img").forEach((img, i) => {
-      img.dataset.idx = i;
-    });
   }
 
   function startAuto() {
@@ -89,7 +84,12 @@ document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
   });
 
   startAuto();
-})();
+}
+
+// PROJ_01 — KeloLa (dot-btn)
+initSlider("#slider-kelola .screenshots-track", "#slider-kelola .dot-btn");
+// PROJ_02 — Realtime (dot-btn-rt)
+initSlider("#track-realtime", ".dot-btn-rt");
 
 // ── Lightbox ──
 (function () {

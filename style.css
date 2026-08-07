@@ -683,7 +683,8 @@ section {
   display: flex;
   gap: 0.4rem;
 }
-.dot-btn {
+.dot-btn,
+.dot-btn-rt {
   width: 7px;
   height: 7px;
   border-radius: 50%;
@@ -695,7 +696,8 @@ section {
     background 0.2s,
     transform 0.2s;
 }
-.dot-btn.active {
+.dot-btn.active,
+.dot-btn-rt.active {
   background: #fff;
   transform: scale(1.3);
 }
@@ -1009,9 +1011,6 @@ footer {
   }
   .hamburger {
     display: flex;
-  }
-  .scroll-hint {
-    display: none;
   }
   #hero {
     padding: 5.5rem 1.5rem 3rem;

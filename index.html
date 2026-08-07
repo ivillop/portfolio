@@ -255,7 +255,7 @@
       <div class="projects-grid">
         <!-- KeloLa Keuangan — featured card full width -->
         <div class="project-card project-card-featured reveal">
-          <div class="project-screenshots">
+          <div class="project-screenshots" id="slider-kelola">
             <div class="screenshots-track" data-gallery="kelola">
               <img
                 src="projek01-dashboard.png"
@@ -342,6 +342,100 @@
               <span class="tag">SQLite</span>
               <span class="tag">Chart.js</span>
               <span class="tag">JWT</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Transaction Monitoring Real-time -->
+        <div class="project-card project-card-featured reveal">
+          <div class="project-screenshots" id="slider-realtime">
+            <div class="screenshots-track" id="track-realtime">
+              <img
+                src="projek02-realtime01.png"
+                alt="Dashboard Monitoring Real-time"
+                class="gallery-img"
+                data-gallery="realtime"
+                data-idx="0"
+              />
+              <img
+                src="projek02-realtime02.png"
+                alt="Live Ticker Transaksi"
+                class="gallery-img"
+                data-gallery="realtime"
+                data-idx="1"
+              />
+              <img
+                src="projek02-realtime03.png"
+                alt="Alert Panel Anomali"
+                class="gallery-img"
+                data-gallery="realtime"
+                data-idx="2"
+              />
+            </div>
+            <div class="screenshots-dots">
+              <button class="dot-btn-rt active" data-idx="0"></button>
+              <button class="dot-btn-rt" data-idx="1"></button>
+              <button class="dot-btn-rt" data-idx="2"></button>
+            </div>
+            <button
+              class="screenshots-expand"
+              data-gallery="realtime"
+              data-idx="0"
+              aria-label="Buka galeri fullscreen"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M8 3H5a2 2 0 0 0-2 2v3" />
+                <path d="M21 8V5a2 2 0 0 0-2-2h-3" />
+                <path d="M3 16v3a2 2 0 0 0 2 2h3" />
+                <path d="M16 21h3a2 2 0 0 0 2-2v-3" />
+              </svg>
+            </button>
+          </div>
+          <div class="project-header" style="padding-top: 1.5rem">
+            <span class="project-num">PROJ_02</span>
+            <a
+              href="https://github.com/ivillop/transaction-monitoring-realtime"
+              target="_blank"
+              class="project-link"
+              title="Lihat di GitHub"
+              >↗ GitHub</a
+            >
+          </div>
+          <div class="project-body">
+            <div class="project-title">
+              Dashboard Monitoring &amp; Analitik Real-time
+            </div>
+            <div class="project-desc">
+              Starter project monitoring transaksi keuangan berbasis WebSocket.
+              Backend Spring Boot otomatis generate transaksi dummy tiap 4 detik
+              dan broadcast ke frontend Angular 17 via STOMP — tanpa polling
+              manual. Dilengkapi live ticker, alert anomali, trend chart 30
+              hari, dan category breakdown.
+            </div>
+            <div class="project-feature-list">
+              <span class="pf-item">⚡ WebSocket Real-time</span>
+              <span class="pf-item">🔔 Alert Anomali</span>
+              <span class="pf-item">📈 Trend 30 Hari</span>
+              <span class="pf-item">🔄 Auto-reconnect</span>
+              <span class="pf-item">📱 Responsive</span>
+            </div>
+            <div class="project-stack" style="margin-top: 1rem">
+              <span class="tag">Spring Boot</span>
+              <span class="tag">WebSocket</span>
+              <span class="tag">STOMP</span>
+              <span class="tag">Angular 17</span>
+              <span class="tag">Signals</span>
+              <span class="tag">Chart.js</span>
+              <span class="tag">SQLite</span>
             </div>
           </div>
         </div>
