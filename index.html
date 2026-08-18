@@ -49,10 +49,10 @@
           </div>
           <p class="hero-desc">
             Full Stack Developer dengan pengalaman membangun sistem keuangan
-            pemerintah dan enterprise menggunakan Java Spring Boot, Go, Angular,
-            dan Oracle Database. Berpengalaman sebagai mentor dan fasilitator
-            coding camp skala nasional, serta aktif berkontribusi dalam
-            organisasi pengembang perangkat lunak.
+            pemerintah dan platform enterprise menggunakan Java Spring Boot, Go
+            (Gin/GORM), Angular, dan Oracle Database. Berpengalaman sebagai
+            mentor dan fasilitator coding camp berskala nasional, serta aktif
+            memimpin komunitas pengembang perangkat lunak di lingkungan kampus.
           </p>
           <div class="hero-cta">
             <a href="#projects" class="btn btn-primary">Lihat Proyek →</a>
@@ -322,21 +322,25 @@
               KeloLa Keuangan — Personal Finance App
             </div>
             <div class="project-desc">
-              Aplikasi keuangan pribadi full-stack: catat pemasukan &amp;
-              pengeluaran, kelola kategori &amp; budget bulanan, lihat dashboard
-              grafik tren 6 bulan serta donut chart per kategori, dan
-              cetak/export laporan keuangan bulanan sebagai PDF langsung dari
-              browser.
+              Aplikasi keuangan pribadi full-stack dengan JWT Auth. Catat
+              pemasukan &amp; pengeluaran, kelola kategori (CRUD + icon emoji),
+              atur budget bulanan dengan progress bar &amp; indikator sisa
+              budget, serta dashboard grafik tren 6 bulan (line chart) dan
+              pengeluaran per kategori (donut chart). Laporan keuangan bulanan
+              bisa dicetak atau disimpan sebagai PDF langsung dari browser
+              menggunakan CSS <code>@media print</code> — tanpa library
+              tambahan.
             </div>
             <div class="project-feature-list">
               <span class="pf-item">🔐 JWT Auth</span>
               <span class="pf-item">📊 Dashboard &amp; Charts</span>
               <span class="pf-item">💰 Budget Tracker</span>
-              <span class="pf-item">🖨️ Cetak PDF</span>
-              <span class="pf-item">📱 Responsive</span>
+              <span class="pf-item">🖨️ Cetak / Export PDF</span>
+              <span class="pf-item">📁 CRUD Kategori &amp; Transaksi</span>
+              <span class="pf-item">📱 Responsive Sidebar</span>
             </div>
             <div class="project-stack" style="margin-top: 1rem">
-              <span class="tag">Angular 17</span>
+              <span class="tag">Angular 21</span>
               <span class="tag">Go Gin</span>
               <span class="tag">GORM</span>
               <span class="tag">SQLite</span>
@@ -415,24 +419,28 @@
               Dashboard Monitoring &amp; Analitik Real-time
             </div>
             <div class="project-desc">
-              Starter project monitoring transaksi keuangan berbasis WebSocket.
-              Backend Spring Boot otomatis generate transaksi dummy tiap 4 detik
-              dan broadcast ke frontend Angular 17 via STOMP — tanpa polling
-              manual. Dilengkapi live ticker, alert anomali, trend chart 30
-              hari, dan category breakdown.
+              Starter project monitoring transaksi keuangan berbasis
+              WebSocket/STOMP native (tanpa SockJS). Backend Spring Boot
+              otomatis generate transaksi dummy tiap 4 detik dan broadcast ke
+              frontend Angular 21 — tanpa polling manual. Angular Signals
+              dipakai untuk reaktivitas UI: <code>liveTransactions</code>,
+              <code>latestSummary</code>, dan <code>alerts</code> update
+              otomatis saat data WebSocket masuk. Database SQLite, siap diganti
+              Oracle/PostgreSQL untuk production.
             </div>
             <div class="project-feature-list">
-              <span class="pf-item">⚡ WebSocket Real-time</span>
-              <span class="pf-item">🔔 Alert Anomali</span>
-              <span class="pf-item">📈 Trend 30 Hari</span>
+              <span class="pf-item">⚡ WebSocket STOMP Real-time</span>
+              <span class="pf-item">🔔 Alert Anomali Otomatis</span>
+              <span class="pf-item">📈 Trend Chart 30 Hari</span>
+              <span class="pf-item">🍩 Category Breakdown</span>
               <span class="pf-item">🔄 Auto-reconnect</span>
-              <span class="pf-item">📱 Responsive</span>
+              <span class="pf-item">📡 Live Status Indicator</span>
             </div>
             <div class="project-stack" style="margin-top: 1rem">
               <span class="tag">Spring Boot</span>
               <span class="tag">WebSocket</span>
               <span class="tag">STOMP</span>
-              <span class="tag">Angular 17</span>
+              <span class="tag">Angular 21</span>
               <span class="tag">Signals</span>
               <span class="tag">Chart.js</span>
               <span class="tag">SQLite</span>
@@ -457,7 +465,12 @@
         </div>
         <div class="exp-list">
           <div class="exp-item reveal">
-            <div class="exp-period">2026</div>
+            <div class="exp-period">
+              Des 2025 — Jun 2026<br /><small
+                style="color: var(--muted); font-size: 0.65rem"
+                >(6 Bulan)</small
+              >
+            </div>
             <div>
               <div class="exp-role">Intern Full Stack Developer</div>
               <div class="exp-company">
@@ -465,18 +478,26 @@
               </div>
               <div class="exp-bullets">
                 <div class="exp-bullet">
-                  Mengembangkan fitur aplikasi menggunakan teknologi full stack
-                  dalam lingkungan kerja profesional.
+                  Mengembangkan modul sistem keuangan pemerintah berbasis Java
+                  Spring Boot, Angular, dan Oracle Database, mencakup fitur
+                  pelaporan dan manajemen data transaksi selama program magang 6
+                  bulan.
                 </div>
                 <div class="exp-bullet">
-                  Berkolaborasi dengan tim lintas divisi untuk menyelesaikan
-                  kebutuhan pengembangan perangkat lunak.
+                  Berkolaborasi dengan tim lintas divisi untuk menerjemahkan
+                  kebutuhan bisnis menjadi fitur aplikasi dan menyelesaikan task
+                  sesuai prioritas proyek.
                 </div>
               </div>
             </div>
           </div>
           <div class="exp-item reveal">
-            <div class="exp-period">2026</div>
+            <div class="exp-period">
+              Jan — Apr 2026<br /><small
+                style="color: var(--muted); font-size: 0.65rem"
+                >(4 Bulan)</small
+              >
+            </div>
             <div>
               <div class="exp-role">Facilitator</div>
               <div class="exp-company">
@@ -484,18 +505,25 @@
               </div>
               <div class="exp-bullets">
                 <div class="exp-bullet">
-                  Memfasilitasi pembelajaran pemrograman bagi siswa SMK dalam
-                  program coding camp berskala nasional.
+                  Membimbing 25 siswa SMK dalam jalur pembelajaran Full-Stack
+                  Web Developer selama 4 bulan, memastikan setiap peserta
+                  memahami kurikulum dan menyelesaikan seluruh modul di platform
+                  Dicoding tepat waktu.
                 </div>
                 <div class="exp-bullet">
-                  Membimbing peserta dalam memahami konsep pengembangan web dan
-                  problem solving.
+                  Berkoordinasi dengan instruktur untuk memantau progres peserta
+                  dan memberikan pengingat penyelesaian tugas secara berkala.
                 </div>
               </div>
             </div>
           </div>
           <div class="exp-item reveal">
-            <div class="exp-period">2025</div>
+            <div class="exp-period">
+              Jan — Jun 2025<br /><small
+                style="color: var(--muted); font-size: 0.65rem"
+                >(6 Bulan)</small
+              >
+            </div>
             <div>
               <div class="exp-role">Mentor Class</div>
               <div class="exp-company">
@@ -503,46 +531,39 @@
               </div>
               <div class="exp-bullets">
                 <div class="exp-bullet">
-                  Menjadi mentor bagi mahasiswa peserta coding camp dalam bidang
-                  pengembangan front-end dan back-end.
+                  Membimbing 25 mahasiswa dalam jalur pembelajaran Full-Stack
+                  Web Developer selama 6 bulan, memandu peserta menuntaskan
+                  kurikulum Dicoding dan konsultasi teknis berkala.
                 </div>
                 <div class="exp-bullet">
-                  Memberikan bimbingan teknis dan review kode peserta secara
-                  berkala.
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="exp-item reveal">
-            <div class="exp-period">2023</div>
-            <div>
-              <div class="exp-role">Studi Independen Bersertifikat (SIB)</div>
-              <div class="exp-company">Dicoding – Cycle 5</div>
-              <div class="exp-bullets">
-                <div class="exp-bullet">
-                  Menyelesaikan program Pengembangan Front-End Web dan Back-End
-                  secara intensif.
-                </div>
-                <div class="exp-bullet">
-                  Membangun proyek akhir berbasis web sebagai bagian dari
-                  penilaian kompetensi.
+                  Memantau progres studi mahasiswa dan memberikan motivasi serta
+                  pengingat penyelesaian tugas agar seluruh peserta dapat
+                  menyelesaikan program tepat waktu.
                 </div>
               </div>
             </div>
           </div>
           <div class="exp-item reveal">
-            <div class="exp-period">2020</div>
+            <div class="exp-period">
+              Jul — Des 2023<br /><small
+                style="color: var(--muted); font-size: 0.65rem"
+                >(6 Bulan)</small
+              >
+            </div>
             <div>
-              <div class="exp-role">Intern Marketing &amp; Sales</div>
-              <div class="exp-company">Yanpro Land</div>
+              <div class="exp-role">
+                Peserta Studi Independen Bersertifikat (SIB)
+              </div>
+              <div class="exp-company">Dicoding x Kampus Merdeka — Cycle 5</div>
               <div class="exp-bullets">
                 <div class="exp-bullet">
-                  Mendukung tim pemasaran dalam kegiatan promosi dan penjualan
-                  properti.
+                  Mengikuti program intensif jalur Front-End Web dan Back-End
+                  sebagai mahasiswa semester 5, setara 20 SKS dalam kurikulum
+                  Merdeka Belajar Kampus Merdeka (MBKM).
                 </div>
                 <div class="exp-bullet">
-                  Melakukan pendekatan kepada calon konsumen dan
-                  mendokumentasikan hasil prospek.
+                  Membangun proyek akhir berbasis web sebagai penilaian
+                  kompetensi akhir program.
                 </div>
               </div>
             </div>
@@ -589,12 +610,12 @@
               <div class="exp-company">Creative Student Association</div>
               <div class="exp-bullets">
                 <div class="exp-bullet">
-                  Memimpin divisi pemrograman dan mengoordinasikan kegiatan
-                  pengembangan skill anggota.
+                  Memimpin divisi pemrograman dan merancang program belajar
+                  coding berkala untuk anggota aktif organisasi.
                 </div>
                 <div class="exp-bullet">
-                  Merancang dan melaksanakan program belajar coding untuk
-                  anggota aktif organisasi.
+                  Menyusun materi pembelajaran dan melakukan pendampingan
+                  praktik pemrograman secara rutin.
                 </div>
               </div>
             </div>
@@ -607,7 +628,7 @@
               <div class="exp-bullets">
                 <div class="exp-bullet">
                   Berpartisipasi aktif dalam kegiatan organisasi dan proyek
-                  pengembangan perangkat lunak.
+                  pengembangan perangkat lunak bersama anggota.
                 </div>
               </div>
             </div>
@@ -724,7 +745,7 @@
           keuangan enterprise? Saya terbuka untuk diskusi.
         </p>
         <div class="contact-links">
-          <a href="mailto:radenakbarpeot@gmail.com" class="btn btn-primary"
+          <a href="mailto:rd.akbar@yandex.com" class="btn btn-primary"
             >✉ Kirim Email</a
           >
         </div>
@@ -746,6 +767,12 @@
             target="_blank"
             class="contact-social"
             >WhatsApp</a
+          >
+          <a
+            href="https://ivillop.github.io/portfolio"
+            target="_blank"
+            class="contact-social"
+            >Portfolio</a
           >
         </div>
       </div>
