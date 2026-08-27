@@ -90,6 +90,8 @@ function initSlider(trackSelector, dotSelector) {
 initSlider("#slider-kelola .screenshots-track", "#slider-kelola .dot-btn");
 // PROJ_02 — Realtime (dot-btn-rt)
 initSlider("#track-realtime", ".dot-btn-rt");
+// PROJ_03 — Ecommerce (dot-btn-ec)
+initSlider("#track-ecommerce", ".dot-btn-ec");
 
 // ── Lightbox ──
 (function () {

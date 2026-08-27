@@ -684,7 +684,8 @@ section {
   gap: 0.4rem;
 }
 .dot-btn,
-.dot-btn-rt {
+.dot-btn-rt,
+.dot-btn-ec {
   width: 7px;
   height: 7px;
   border-radius: 50%;
@@ -697,7 +698,8 @@ section {
     transform 0.2s;
 }
 .dot-btn.active,
-.dot-btn-rt.active {
+.dot-btn-rt.active,
+.dot-btn-ec.active {
   background: #fff;
   transform: scale(1.3);
 }
