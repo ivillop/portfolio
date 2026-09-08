@@ -1,16 +1,241 @@
-// ── Typed text ──
-const phrases = [
+// ── i18n Language Switcher ──
+const translations = {
+  id: {
+    // Nav
+    "nav.skills":          "Keahlian",
+    "nav.projects":        "Proyek",
+    "nav.experience":      "Pengalaman",
+    "nav.certifications":  "Sertifikasi",
+    "nav.contact":         "Kontak",
+    // Hero
+    "hero.eyebrow":        "// Halo, saya",
+    "hero.desc":           "Full Stack Developer dengan pengalaman membangun sistem keuangan pemerintah dan platform enterprise menggunakan Java Spring Boot, Go (Gin/GORM), Angular, dan Oracle Database. Berpengalaman sebagai mentor dan fasilitator coding camp berskala nasional, serta aktif memimpin komunitas pengembang perangkat lunak di lingkungan kampus.",
+    "hero.cta.projects":   "Lihat Proyek →",
+    "hero.cta.contact":    "Hubungi Saya",
+    // Skills
+    "skills.label":        "01 — Keahlian",
+    "skills.title":        "Teknologi yang saya kuasai",
+    "skills.lang":         "Bahasa Pemrograman",
+    "skills.framework":    "Framework",
+    "skills.database":     "Database",
+    "skills.tools":        "Tools & Platform",
+    // Projects
+    "projects.label":      "02 — Proyek",
+    "projects.title":      "Yang pernah saya bangun",
+    "proj1.title":         "KeloLa Keuangan — Personal Finance App",
+    "proj1.desc":          "Aplikasi keuangan pribadi full-stack dengan JWT Auth. Catat pemasukan & pengeluaran, kelola kategori (CRUD + icon emoji), atur budget bulanan dengan progress bar & indikator sisa budget, serta dashboard grafik tren 6 bulan (line chart) dan pengeluaran per kategori (donut chart). Laporan keuangan bulanan bisa dicetak atau disimpan sebagai PDF langsung dari browser menggunakan CSS @media print — tanpa library tambahan.",
+    "proj1.f1":            "📊 Dashboard & Charts",
+    "proj1.f2":            "💰 Budget Tracker",
+    "proj1.f3":            "🖨️ Cetak / Export PDF",
+    "proj1.f4":            "📁 CRUD Kategori & Transaksi",
+    "proj1.f5":            "📱 Responsive Sidebar",
+    "proj2.title":         "Dashboard Monitoring & Analitik Real-time",
+    "proj2.desc":          "Starter project monitoring transaksi keuangan berbasis WebSocket/STOMP native (tanpa SockJS). Backend Spring Boot otomatis generate transaksi dummy tiap 4 detik dan broadcast ke frontend Angular 21 — tanpa polling manual. Angular Signals dipakai untuk reaktivitas UI: liveTransactions, latestSummary, dan alerts update otomatis saat data WebSocket masuk. Database SQLite, siap diganti Oracle/PostgreSQL untuk production.",
+    "proj2.f1":            "⚡ WebSocket STOMP Real-time",
+    "proj2.f2":            "🔔 Alert Anomali Otomatis",
+    "proj2.f3":            "📈 Trend Chart 30 Hari",
+    "proj2.f4":            "🔄 Auto-reconnect",
+    "proj2.f5":            "📡 Live Status Indicator",
+    "proj3.title":         "Toko Mini — E-Commerce Mini",
+    "proj3.desc":          "Proyek portofolio e-commerce sederhana dengan katalog produk, keranjang belanja berbasis session, checkout terintegrasi Midtrans Snap (popup pembayaran), webhook otomatis untuk update status pesanan, riwayat & detail pesanan customer, serta panel admin lengkap dengan dashboard ringkas dan CRUD produk (termasuk upload gambar). Dibangun dengan Laravel 13 + Blade templating + TailwindCSS via CDN — tanpa build step, siap dijalankan langsung.",
+    "proj3.f1":            "🛒 Keranjang & Checkout",
+    "proj3.f2":            "🔔 Webhook Otomatis",
+    "proj3.f3":            "🛠️ Panel Admin",
+    "proj3.f4":            "📦 CRUD Produk & Kategori",
+    "proj3.f5":            "🔐 Role-based Access",
+    // Experience
+    "exp.label":           "03 — Pengalaman",
+    "exp.title":           "Perjalanan karier",
+    "exp.work":            "Pengalaman Kerja",
+    "exp.education":       "Pendidikan",
+    "exp.org":             "Pengalaman Organisasi",
+    "exp.6mo":             "(6 Bulan)",
+    "exp.4mo":             "(4 Bulan)",
+    "exp.w1.role":         "Intern Full Stack Developer",
+    "exp.w1.b1":           "Mengembangkan modul sistem keuangan pemerintah berbasis Java Spring Boot, Angular, dan Oracle Database, mencakup fitur pelaporan dan manajemen data transaksi selama program magang 6 bulan.",
+    "exp.w1.b2":           "Berkolaborasi dengan tim lintas divisi untuk menerjemahkan kebutuhan bisnis menjadi fitur aplikasi dan menyelesaikan task sesuai prioritas proyek.",
+    "exp.w2.role":         "Facilitator",
+    "exp.w2.b1":           "Membimbing 25 siswa SMK dalam jalur pembelajaran Full-Stack Web Developer selama 4 bulan, memastikan setiap peserta memahami kurikulum dan menyelesaikan seluruh modul di platform Dicoding tepat waktu.",
+    "exp.w2.b2":           "Berkoordinasi dengan instruktur untuk memantau progres peserta dan memberikan pengingat penyelesaian tugas secara berkala.",
+    "exp.w3.role":         "Mentor Class",
+    "exp.w3.b1":           "Membimbing 25 mahasiswa dalam jalur pembelajaran Full-Stack Web Developer selama 6 bulan, memandu peserta menuntaskan kurikulum Dicoding dan konsultasi teknis berkala.",
+    "exp.w3.b2":           "Memantau progres studi mahasiswa dan memberikan motivasi serta pengingat penyelesaian tugas agar seluruh peserta dapat menyelesaikan program tepat waktu.",
+    "exp.w4.role":         "Peserta Studi Independen Bersertifikat (SIB)",
+    "exp.w4.b1":           "Mengikuti program intensif jalur Front-End Web dan Back-End sebagai mahasiswa semester 5, setara 20 SKS dalam kurikulum Merdeka Belajar Kampus Merdeka (MBKM).",
+    "exp.w4.b2":           "Membangun proyek akhir berbasis web sebagai penilaian kompetensi akhir program.",
+    "exp.e1.role":         "Teknik Informatika",
+    "exp.e2.role":         "SMA / Senior High School",
+    "exp.o1.role":         "Ketua Divisi Pemrograman",
+    "exp.o1.b1":           "Memimpin divisi pemrograman dan merancang program belajar coding berkala untuk anggota aktif organisasi.",
+    "exp.o1.b2":           "Menyusun materi pembelajaran dan melakukan pendampingan praktik pemrograman secara rutin.",
+    "exp.o2.role":         "Anggota",
+    "exp.o2.b1":           "Berpartisipasi aktif dalam kegiatan organisasi dan proyek pengembangan perangkat lunak bersama anggota.",
+    // Certifications
+    "cert.label":          "04 — Sertifikasi",
+    "cert.title":          "Sertifikat yang saya miliki",
+    "cert.view":           "🔍 Lihat",
+    "cert.c1.meta":        "Mentor · Coding Camp 2025 · Jul 2025",
+    "cert.c2.meta":        "Facilitator · Coding Camp 2026 · Mei 2026",
+    "cert.c3.title":       "Sertifikat Pemagangan",
+    "cert.c3.meta":        "Full Stack Developer · Batch 3 · Jun 2026",
+    "cert.c4.title":       "Sertifikat Kelulusan SIB",
+    "cert.c4.meta":        "Front-End & Back-End · Angkatan 5 · Des 2023",
+    // Contact
+    "contact.label":       "05 — Kontak",
+    "contact.title.1":     "Mari",
+    "contact.title.2":     "bekerja sama",
+    "contact.sub":         "Punya proyek menarik atau butuh developer berpengalaman di sistem keuangan enterprise? Saya terbuka untuk diskusi.",
+    "contact.email":       "✉ Kirim Email",
+    // Footer
+    "footer.built":        "Dibangun dengan HTML, CSS & JS",
+  },
+  en: {
+    // Nav
+    "nav.skills":          "Skills",
+    "nav.projects":        "Projects",
+    "nav.experience":      "Experience",
+    "nav.certifications":  "Certifications",
+    "nav.contact":         "Contact",
+    // Hero
+    "hero.eyebrow":        "// Hi, I'm",
+    "hero.desc":           "Full Stack Developer with experience building government financial systems and enterprise platforms using Java Spring Boot, Go (Gin/GORM), Angular, and Oracle Database. Experienced as a mentor and facilitator for national-scale coding camps, actively leading a software developer community on campus.",
+    "hero.cta.projects":   "View Projects →",
+    "hero.cta.contact":    "Contact Me",
+    // Skills
+    "skills.label":        "01 — Skills",
+    "skills.title":        "Technologies I work with",
+    "skills.lang":         "Programming Languages",
+    "skills.framework":    "Frameworks",
+    "skills.database":     "Databases",
+    "skills.tools":        "Tools & Platforms",
+    // Projects
+    "projects.label":      "02 — Projects",
+    "projects.title":      "Things I've built",
+    "proj1.title":         "KeloLa Keuangan — Personal Finance App",
+    "proj1.desc":          "Full-stack personal finance app with JWT Auth. Track income & expenses, manage categories (CRUD + emoji icons), set monthly budgets with a progress bar & remaining budget indicator, and view a 6-month trend line chart and per-category donut chart. Monthly financial reports can be printed or saved as PDF directly from the browser using CSS @media print — no extra library needed.",
+    "proj1.f1":            "📊 Dashboard & Charts",
+    "proj1.f2":            "💰 Budget Tracker",
+    "proj1.f3":            "🖨️ Print / Export PDF",
+    "proj1.f4":            "📁 CRUD Categories & Transactions",
+    "proj1.f5":            "📱 Responsive Sidebar",
+    "proj2.title":         "Real-time Monitoring & Analytics Dashboard",
+    "proj2.desc":          "Starter project for real-time financial transaction monitoring using native WebSocket/STOMP (no SockJS). The Spring Boot backend auto-generates dummy transactions every 4 seconds and broadcasts them to the Angular 21 frontend — no manual polling. Angular Signals power reactive UI: liveTransactions, latestSummary, and alerts update automatically when WebSocket data arrives. SQLite database, ready to swap for Oracle/PostgreSQL in production.",
+    "proj2.f1":            "⚡ WebSocket STOMP Real-time",
+    "proj2.f2":            "🔔 Automatic Anomaly Alerts",
+    "proj2.f3":            "📈 30-Day Trend Chart",
+    "proj2.f4":            "🔄 Auto-reconnect",
+    "proj2.f5":            "📡 Live Status Indicator",
+    "proj3.title":         "Toko Mini — Mini E-Commerce",
+    "proj3.desc":          "Portfolio e-commerce project with product catalog, session-based cart, checkout integrated with Midtrans Snap (payment popup), automatic webhook for order status updates, customer order history & detail, and a full admin panel with a concise dashboard and product CRUD (including image upload). Built with Laravel 13 + Blade templating + TailwindCSS via CDN — no build step, ready to run out of the box.",
+    "proj3.f1":            "🛒 Cart & Checkout",
+    "proj3.f2":            "🔔 Automatic Webhook",
+    "proj3.f3":            "🛠️ Admin Panel",
+    "proj3.f4":            "📦 Product & Category CRUD",
+    "proj3.f5":            "🔐 Role-based Access",
+    // Experience
+    "exp.label":           "03 — Experience",
+    "exp.title":           "Career journey",
+    "exp.work":            "Work Experience",
+    "exp.education":       "Education",
+    "exp.org":             "Organizational Experience",
+    "exp.6mo":             "(6 Months)",
+    "exp.4mo":             "(4 Months)",
+    "exp.w1.role":         "Intern Full Stack Developer",
+    "exp.w1.b1":           "Developed government financial system modules using Java Spring Boot, Angular, and Oracle Database, covering reporting features and transaction data management during a 6-month internship.",
+    "exp.w1.b2":           "Collaborated with cross-functional teams to translate business requirements into application features and completed tasks according to project priorities.",
+    "exp.w2.role":         "Facilitator",
+    "exp.w2.b1":           "Mentored 25 vocational high school students in the Full-Stack Web Developer learning path over 4 months, ensuring each participant understood the curriculum and completed all modules on the Dicoding platform on time.",
+    "exp.w2.b2":           "Coordinated with instructors to monitor participant progress and provide task completion reminders on a regular basis.",
+    "exp.w3.role":         "Mentor Class",
+    "exp.w3.b1":           "Guided 25 university students through the Full-Stack Web Developer learning path over 6 months, helping them complete the Dicoding curriculum with regular technical consultations.",
+    "exp.w3.b2":           "Monitored student study progress and provided motivation and task reminders to ensure all participants completed the program on time.",
+    "exp.w4.role":         "Independent Study Program Participant (SIB)",
+    "exp.w4.b1":           "Completed an intensive Front-End Web and Back-End program as a 5th-semester student, equivalent to 20 credits under the Merdeka Belajar Kampus Merdeka (MBKM) curriculum.",
+    "exp.w4.b2":           "Built a final web-based project as the program's competency assessment.",
+    "exp.e1.role":         "Informatics Engineering",
+    "exp.e2.role":         "Senior High School",
+    "exp.o1.role":         "Head of Programming Division",
+    "exp.o1.b1":           "Led the programming division and designed a regular coding learning program for active organization members.",
+    "exp.o1.b2":           "Compiled learning materials and conducted hands-on programming mentoring sessions on a routine basis.",
+    "exp.o2.role":         "Member",
+    "exp.o2.b1":           "Actively participated in organizational activities and software development projects alongside fellow members.",
+    // Certifications
+    "cert.label":          "04 — Certifications",
+    "cert.title":          "Certificates I hold",
+    "cert.view":           "🔍 View",
+    "cert.c1.meta":        "Mentor · Coding Camp 2025 · Jul 2025",
+    "cert.c2.meta":        "Facilitator · Coding Camp 2026 · May 2026",
+    "cert.c3.title":       "Internship Certificate",
+    "cert.c3.meta":        "Full Stack Developer · Batch 3 · Jun 2026",
+    "cert.c4.title":       "Graduation Certificate SIB",
+    "cert.c4.meta":        "Front-End & Back-End · Batch 5 · Dec 2023",
+    // Contact
+    "contact.label":       "05 — Contact",
+    "contact.title.1":     "Let's",
+    "contact.title.2":     "work together",
+    "contact.sub":         "Have an interesting project or need an experienced developer in enterprise financial systems? I'm open for discussion.",
+    "contact.email":       "✉ Send Email",
+    // Footer
+    "footer.built":        "Built with HTML, CSS & JS",
+  }
+};
+
+let currentLang = "id";
+
+function applyLang(lang) {
+  const t = translations[lang];
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const key = el.dataset.i18n;
+    if (t[key] !== undefined) el.textContent = t[key];
+  });
+  document.documentElement.lang = lang;
+  // Update typed phrases
+  typedPhrases = lang === "en" ? phrasesEN : phrasesID;
+  // Update toggle pill
+  const toggle = document.getElementById("langToggle");
+  const optID  = document.getElementById("optID");
+  const optEN  = document.getElementById("optEN");
+  if (lang === "id") {
+    toggle.classList.remove("en");
+    optID.classList.add("active");
+    optEN.classList.remove("active");
+  } else {
+    toggle.classList.add("en");
+    optEN.classList.add("active");
+    optID.classList.remove("active");
+  }
+  currentLang = lang;
+}
+
+const langToggleEl = document.getElementById("langToggle");
+langToggleEl.addEventListener("click", () => {
+  applyLang(currentLang === "id" ? "en" : "id");
+});
+langToggleEl.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" || e.key === " ") {
+    e.preventDefault();
+    applyLang(currentLang === "id" ? "en" : "id");
+  }
+});
+
+// ── Typed text (bilingual) ──
+const phrasesID = [
   "Mentor Univ Coding Camp Powered by DBS Foundation 2025",
   "Facilitator SMK Coding Camp Powered by DBS Foundation 2026",
   "Maganghub Kemnaker Batch 3",
   "Mahasiswa STMIK Mardira Indonesia 2021",
 ];
-let pIdx = 0,
-  cIdx = 0,
-  del = false;
+const phrasesEN = [
+  "Mentor — Coding Camp DBS Foundation 2025",
+  "Facilitator — Coding Camp DBS Foundation 2026",
+  "Maganghub Kemnaker Internship Batch 3",
+  "Informatics Engineering Student 2021",
+];
+let typedPhrases = phrasesID;
+let pIdx = 0, cIdx = 0, del = false;
 const typedEl = document.getElementById("typed-text");
 function type() {
-  const cur = phrases[pIdx];
+  const cur = typedPhrases[pIdx % typedPhrases.length];
   if (!del) {
     typedEl.textContent = cur.slice(0, ++cIdx);
     if (cIdx === cur.length) {
@@ -22,7 +247,7 @@ function type() {
     typedEl.textContent = cur.slice(0, --cIdx);
     if (cIdx === 0) {
       del = false;
-      pIdx = (pIdx + 1) % phrases.length;
+      pIdx = (pIdx + 1) % typedPhrases.length;
     }
   }
   setTimeout(type, del ? 38 : 68);
