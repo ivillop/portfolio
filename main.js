@@ -1,3 +1,28 @@
+// ── Component Loader ──
+// Inject HTML component langsung dari konstanta di components.js
+// Tidak butuh server — aman untuk file:// protocol
+(function loadComponents() {
+  const map = [
+    { id: "app-navbar",         html: COMP_NAVBAR         },
+    { id: "app-hero",           html: COMP_HERO           },
+    { id: "app-skills",         html: COMP_SKILLS         },
+    { id: "app-projects",       html: COMP_PROJECTS       },
+    { id: "app-experience",     html: COMP_EXPERIENCE     },
+    { id: "app-certifications", html: COMP_CERTIFICATIONS },
+    { id: "app-contact",        html: COMP_CONTACT        },
+  ];
+
+  map.forEach(({ id, html }) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.outerHTML = html;
+  });
+
+  initApp();
+})();
+
+function initApp() {
+
 // ── i18n Language Switcher ──
 const translations = {
   id: {
@@ -518,3 +543,5 @@ window.addEventListener("scroll", () => {
     nav.style.padding = "1.1rem 4rem";
   }
 });
+
+} // end initApp
