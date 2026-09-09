@@ -12,6 +12,7 @@ const translations = {
     "hero.desc":           "Full Stack Developer dengan pengalaman membangun sistem keuangan pemerintah dan platform enterprise menggunakan Java Spring Boot, Go (Gin/GORM), Angular, dan Oracle Database. Berpengalaman sebagai mentor dan fasilitator coding camp berskala nasional, serta aktif memimpin komunitas pengembang perangkat lunak di lingkungan kampus.",
     "hero.cta.projects":   "Lihat Proyek →",
     "hero.cta.contact":    "Hubungi Saya",
+    "hero.cta.cv":         "⬇ Download CV",
     // Skills
     "skills.label":        "01 — Keahlian",
     "skills.title":        "Teknologi yang saya kuasai",
@@ -85,9 +86,14 @@ const translations = {
     "contact.title.1":     "Mari",
     "contact.title.2":     "bekerja sama",
     "contact.sub":         "Punya proyek menarik atau butuh developer berpengalaman di sistem keuangan enterprise? Saya terbuka untuk diskusi.",
-    "contact.email":       "✉ Kirim Email",
+    "contact.email":       "Email",
     // Footer
     "footer.built":        "Dibangun dengan HTML, CSS & JS",
+    // CV Modal
+    "cv.modal.title":      "Pilih Bahasa CV",
+    "cv.modal.sub":        "Download CV dalam bahasa yang kamu inginkan",
+    "cv.modal.id":         "Bahasa Indonesia",
+    "cv.modal.en":         "English",
   },
   en: {
     // Nav
@@ -101,6 +107,7 @@ const translations = {
     "hero.desc":           "Full Stack Developer with experience building government financial systems and enterprise platforms using Java Spring Boot, Go (Gin/GORM), Angular, and Oracle Database. Experienced as a mentor and facilitator for national-scale coding camps, actively leading a software developer community on campus.",
     "hero.cta.projects":   "View Projects →",
     "hero.cta.contact":    "Contact Me",
+    "hero.cta.cv":         "⬇ Download CV",
     // Skills
     "skills.label":        "01 — Skills",
     "skills.title":        "Technologies I work with",
@@ -174,9 +181,14 @@ const translations = {
     "contact.title.1":     "Let's",
     "contact.title.2":     "work together",
     "contact.sub":         "Have an interesting project or need an experienced developer in enterprise financial systems? I'm open for discussion.",
-    "contact.email":       "✉ Send Email",
+    "contact.email":       "Email",
     // Footer
     "footer.built":        "Built with HTML, CSS & JS",
+    // CV Modal
+    "cv.modal.title":      "Choose CV Language",
+    "cv.modal.sub":        "Download my CV in your preferred language",
+    "cv.modal.id":         "Bahasa Indonesia",
+    "cv.modal.en":         "English",
   }
 };
 
@@ -232,6 +244,7 @@ const phrasesEN = [
   "Informatics Engineering Student 2021",
 ];
 let typedPhrases = phrasesID;
+
 let pIdx = 0, cIdx = 0, del = false;
 const typedEl = document.getElementById("typed-text");
 function type() {
@@ -253,6 +266,22 @@ function type() {
   setTimeout(type, del ? 38 : 68);
 }
 setTimeout(type, 1200);
+
+// ── Dark mode toggle ──
+const themeToggle = document.getElementById("themeToggle");
+const savedTheme  = localStorage.getItem("theme") || "light";
+if (savedTheme === "dark") document.documentElement.setAttribute("data-theme", "dark");
+
+themeToggle.addEventListener("click", () => {
+  const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+  if (isDark) {
+    document.documentElement.removeAttribute("data-theme");
+    localStorage.setItem("theme", "light");
+  } else {
+    document.documentElement.setAttribute("data-theme", "dark");
+    localStorage.setItem("theme", "dark");
+  }
+});
 
 // ── Hamburger ──
 const hamburger = document.getElementById("hamburger");
@@ -318,29 +347,62 @@ initSlider("#track-realtime", ".dot-btn-rt");
 // PROJ_03 — Ecommerce (dot-btn-ec)
 initSlider("#track-ecommerce", ".dot-btn-ec");
 
+// ── CV Download Modal ──
+(function () {
+  const modal    = document.getElementById("cvModal");
+  const closeBtn = document.getElementById("cvModalClose");
+  if (!modal) return;
+
+  function openModal() {
+    modal.classList.add("open");
+    document.body.style.overflow = "hidden";
+    closeBtn.focus();
+  }
+  function closeModal() {
+    modal.classList.remove("open");
+    document.body.style.overflow = "";
+  }
+
+  // Trigger dari hero dan contact
+  ["cvModalTrigger", "cvModalTrigger2"].forEach((id) => {
+    const btn = document.getElementById(id);
+    if (btn) btn.addEventListener("click", openModal);
+  });
+
+  closeBtn.addEventListener("click", closeModal);
+
+  // Klik backdrop tutup modal
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  // Keyboard
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.classList.contains("open")) closeModal();
+  });
+})();
+
 // ── Lightbox ──
 (function () {
-  const overlay = document.getElementById("lbOverlay");
-  const lbImg = document.getElementById("lbImg");
+  const overlay   = document.getElementById("lbOverlay");
+  const lbImg     = document.getElementById("lbImg");
   const lbCaption = document.getElementById("lbCaption");
-  const lbDots = document.getElementById("lbDots");
-  const btnClose = document.getElementById("lbClose");
-  const btnPrev = document.getElementById("lbPrev");
-  const btnNext = document.getElementById("lbNext");
+  const lbDots    = document.getElementById("lbDots");
+  const btnClose  = document.getElementById("lbClose");
+  const btnPrev   = document.getElementById("lbPrev");
+  const btnNext   = document.getElementById("lbNext");
   if (!overlay) return;
 
-  // Collect all images per gallery group (project screenshots + certificates)
+  // Kumpulkan gambar per gallery group
   const galleries = {};
-  document
-    .querySelectorAll(".gallery-img, .cert-gallery-img")
-    .forEach((img) => {
-      const group = img.dataset.gallery;
-      if (!galleries[group]) galleries[group] = [];
-      galleries[group].push({ src: img.src, alt: img.alt });
-    });
+  document.querySelectorAll(".gallery-img, .cert-gallery-img").forEach((img) => {
+    const group = img.dataset.gallery;
+    if (!galleries[group]) galleries[group] = [];
+    galleries[group].push({ src: img.src, alt: img.alt });
+  });
 
   let activeGallery = null;
-  let activeIdx = 0;
+  let activeIdx     = 0;
 
   function buildDots(count) {
     lbDots.innerHTML = "";
@@ -354,8 +416,7 @@ initSlider("#track-ecommerce", ".dot-btn-ec");
   }
 
   function setDots(idx) {
-    lbDots
-      .querySelectorAll(".lb-dot")
+    lbDots.querySelectorAll(".lb-dot")
       .forEach((d, i) => d.classList.toggle("active", i === idx));
   }
 
@@ -364,6 +425,7 @@ initSlider("#track-ecommerce", ".dot-btn-ec");
     if (!imgs) return;
     idx = Math.max(0, Math.min(idx, imgs.length - 1));
     activeIdx = idx;
+
     lbImg.classList.add("fading");
     setTimeout(() => {
       lbImg.src = imgs[idx].src;
@@ -371,13 +433,16 @@ initSlider("#track-ecommerce", ".dot-btn-ec");
       lbCaption.textContent = imgs[idx].alt;
       lbImg.classList.remove("fading");
     }, 160);
+
     setDots(idx);
     btnPrev.disabled = idx === 0;
     btnNext.disabled = idx === imgs.length - 1;
   }
 
   function open(gallery, idx) {
+    if (!galleries[gallery]) return;   // guard: gallery belum terdaftar
     activeGallery = gallery;
+    activeIdx     = idx;               // set dulu sebelum buildDots
     overlay.classList.add("open");
     document.body.style.overflow = "hidden";
     buildDots(galleries[gallery].length);
@@ -388,22 +453,17 @@ initSlider("#track-ecommerce", ".dot-btn-ec");
   function close() {
     overlay.classList.remove("open");
     document.body.style.overflow = "";
-    lbImg.src = "";
   }
 
-  // Click on project screenshot images
+  // Project screenshots — klik gambar
   document.querySelectorAll(".gallery-img").forEach((img) => {
-    img.addEventListener("click", () =>
-      open(img.dataset.gallery, parseInt(img.dataset.idx)),
-    );
+    img.addEventListener("click", (e) => {
+      e.stopPropagation();
+      open(img.dataset.gallery, parseInt(img.dataset.idx));
+    });
   });
 
-  // Click on certificate images or entire cert card
-  document.querySelectorAll(".cert-gallery-img").forEach((img) => {
-    img.addEventListener("click", () =>
-      open(img.dataset.gallery, parseInt(img.dataset.idx)),
-    );
-  });
+  // Sertifikat — klik seluruh card (bukan gambar, supaya tidak double-fire)
   document.querySelectorAll(".cert-card").forEach((card) => {
     card.addEventListener("click", () => {
       const img = card.querySelector(".cert-gallery-img");
@@ -411,7 +471,7 @@ initSlider("#track-ecommerce", ".dot-btn-ec");
     });
   });
 
-  // Expand button (project card)
+  // Expand button (ikon fullscreen di project card)
   document.querySelectorAll(".screenshots-expand").forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -423,28 +483,24 @@ initSlider("#track-ecommerce", ".dot-btn-ec");
   btnPrev.addEventListener("click", () => goTo(activeIdx - 1));
   btnNext.addEventListener("click", () => goTo(activeIdx + 1));
 
-  // Click outside image closes modal
+  // Klik backdrop tutup modal
   overlay.addEventListener("click", (e) => {
     if (e.target === overlay) close();
   });
 
-  // Keyboard navigation
+  // Keyboard
   document.addEventListener("keydown", (e) => {
     if (!overlay.classList.contains("open")) return;
-    if (e.key === "Escape") close();
-    if (e.key === "ArrowLeft") goTo(activeIdx - 1);
+    if (e.key === "Escape")     close();
+    if (e.key === "ArrowLeft")  goTo(activeIdx - 1);
     if (e.key === "ArrowRight") goTo(activeIdx + 1);
   });
 
   // Touch swipe
   let touchStartX = 0;
-  overlay.addEventListener(
-    "touchstart",
-    (e) => {
-      touchStartX = e.touches[0].clientX;
-    },
-    { passive: true },
-  );
+  overlay.addEventListener("touchstart", (e) => {
+    touchStartX = e.touches[0].clientX;
+  }, { passive: true });
   overlay.addEventListener("touchend", (e) => {
     const dx = e.changedTouches[0].clientX - touchStartX;
     if (Math.abs(dx) > 50) goTo(activeIdx + (dx < 0 ? 1 : -1));

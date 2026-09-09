@@ -1,0 +1,124 @@
+/* ============================================================
+   responsive.css — Media queries & reduced motion
+   ============================================================ */
+
+/* Tablet / collapsed hero */
+@media (max-width: 900px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+  .hero-photo-wrap {
+    display: flex;
+    justify-content: center;
+    order: -1;
+  }
+  .photo-frame {
+    width: 180px;
+    height: 180px;
+  }
+  .hero-cta {
+    justify-content: center;
+  }
+  .hero-terminal {
+    justify-content: center;
+  }
+  .scroll-hint {
+    display: none;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  nav {
+    padding: 1rem 1.5rem;
+  }
+  .nav-links {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+  .lang-toggle {
+    display: flex;
+  }
+
+  #hero {
+    padding: 5.5rem 1.5rem 3rem;
+  }
+  section {
+    padding: 5rem 1.5rem;
+  }
+
+  #skills,
+  #contact {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  #certifications {
+    padding: 5rem 1.5rem;
+  }
+
+  .tech-item {
+    width: 76px;
+    padding: 0.8rem 0.6rem 0.7rem;
+  }
+  .tech-item img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .tech-row {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .exp-category {
+    margin-top: 2rem;
+  }
+  .exp-item {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+
+  .cert-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .lb-arrow {
+    width: 38px;
+    height: 38px;
+    font-size: 1.1rem;
+    margin: 0 0.35rem;
+  }
+  .lb-content {
+    max-width: calc(100vw - 100px);
+  }
+  .lb-img {
+    max-height: 70vh;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 0.6rem;
+    text-align: center;
+    padding: 1.5rem;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

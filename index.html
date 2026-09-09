@@ -10,7 +10,13 @@
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/hero.css" />
+    <link rel="stylesheet" href="css/sections.css" />
+    <link rel="stylesheet" href="css/lightbox.css" />
+    <link rel="stylesheet" href="css/cv-modal.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
   </head>
   <body>
     <!-- Nav -->
@@ -28,6 +34,14 @@
         <li><a href="#contact" data-i18n="nav.contact">Kontak</a></li>
       </ul>
       <div class="nav-right">
+        <button
+          class="theme-toggle"
+          id="themeToggle"
+          aria-label="Toggle dark mode"
+        >
+          <span class="icon-sun">☀️</span>
+          <span class="icon-moon">🌙</span>
+        </button>
         <div
           class="lang-toggle"
           id="langToggle"
@@ -83,9 +97,16 @@
             memimpin komunitas pengembang perangkat lunak di lingkungan kampus.
           </p>
           <div class="hero-cta">
+            <button
+              class="btn btn-primary"
+              id="cvModalTrigger"
+              data-i18n="hero.cta.cv"
+            >
+              ⬇ Download CV
+            </button>
             <a
               href="#projects"
-              class="btn btn-primary"
+              class="btn btn-ghost"
               data-i18n="hero.cta.projects"
               >Lihat Proyek →</a
             >
@@ -102,10 +123,6 @@
             <img src="profile.JPG" alt="Foto Profile" />
           </div>
         </div>
-      </div>
-      <div class="scroll-hint">
-        <span>Scroll</span>
-        <div class="scroll-line"></div>
       </div>
     </section>
 
@@ -917,14 +934,21 @@
           keuangan enterprise? Saya terbuka untuk diskusi.
         </p>
         <div class="contact-links">
-          <a
-            href="mailto:rd.akbar@yandex.com"
+          <button
             class="btn btn-primary"
-            data-i18n="contact.email"
-            >✉ Kirim Email</a
+            id="cvModalTrigger2"
+            data-i18n="hero.cta.cv"
           >
+            ⬇ Download CV
+          </button>
         </div>
         <div class="contact-links">
+          <a
+            href="mailto:rd.akbar@yandex.com"
+            class="contact-social"
+            data-i18n="contact.email"
+            >Email</a
+          >
           <a
             href="https://github.com/ivillop"
             target="_blank"
@@ -943,12 +967,6 @@
             class="contact-social"
             >WhatsApp</a
           >
-          <a
-            href="https://ivillop.github.io/portfolio"
-            target="_blank"
-            class="contact-social"
-            >Portfolio</a
-          >
         </div>
       </div>
     </section>
@@ -961,6 +979,42 @@
       </div>
       <div class="footer-text">Bandung, <span>Jawa Barat</span> 🇮🇩</div>
     </footer>
+
+    <!-- CV Download Modal -->
+    <div
+      class="cv-modal-overlay"
+      id="cvModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="cvModalTitle"
+    >
+      <div class="cv-modal">
+        <button class="cv-modal-close" id="cvModalClose" aria-label="Tutup">
+          &#x2715;
+        </button>
+        <div class="cv-modal-icon">📄</div>
+        <h3 class="cv-modal-title" id="cvModalTitle" data-i18n="cv.modal.title">
+          Pilih Bahasa CV
+        </h3>
+        <p class="cv-modal-sub" data-i18n="cv.modal.sub">
+          Download CV dalam bahasa yang kamu inginkan
+        </p>
+        <div class="cv-modal-options">
+          <a href="CV_Raden_Akbar_A_Gumilang.pdf" download class="cv-option">
+            <span class="cv-option-flag">ID</span>
+            <span class="cv-option-lang" data-i18n="cv.modal.id"
+              >Bahasa Indonesia</span
+            >
+            <span class="cv-option-arrow">↓</span>
+          </a>
+          <a href="CV_Raden_Akbar_A_Gumilang_EN.pdf" download class="cv-option">
+            <span class="cv-option-flag">EN</span>
+            <span class="cv-option-lang" data-i18n="cv.modal.en">English</span>
+            <span class="cv-option-arrow">↓</span>
+          </a>
+        </div>
+      </div>
+    </div>
 
     <!-- Lightbox -->
     <div class="lb-overlay" id="lbOverlay" role="dialog" aria-modal="true">

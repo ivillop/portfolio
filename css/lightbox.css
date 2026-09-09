@@ -1,0 +1,163 @@
+/* ============================================================
+   lightbox.css — Modal lightbox overlay
+   ============================================================ */
+
+/* Overlay: hidden by default, shown when .open */
+.lb-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(5, 10, 20, 0.92);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  /* Hidden state */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+/* Visible state */
+.lb-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Close button */
+.lb-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.5rem;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  z-index: 10;
+  line-height: 1;
+}
+.lb-close:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Prev / Next arrows */
+.lb-arrow {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 1.4rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background 0.2s,
+    transform 0.15s;
+  z-index: 10;
+  margin: 0 1rem;
+  user-select: none;
+  line-height: 1;
+}
+.lb-arrow:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+.lb-prev:hover {
+  transform: translateX(-3px);
+}
+.lb-next:hover {
+  transform: translateX(3px);
+}
+.lb-arrow:disabled {
+  opacity: 0.3;
+  cursor: default;
+  transform: none;
+}
+
+/* Content wrapper */
+.lb-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  max-width: calc(100vw - 160px);
+  max-height: 90vh;
+  overflow: hidden;
+}
+
+/* Image */
+.lb-img {
+  max-width: 100%;
+  max-height: 78vh;
+  width: auto;
+  height: auto;
+  border-radius: 8px;
+  object-fit: contain;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+  transition: opacity 0.18s ease;
+  display: block;
+  user-select: none;
+}
+.lb-img.fading {
+  opacity: 0;
+}
+
+/* Caption */
+.lb-caption {
+  color: rgba(255, 255, 255, 0.75);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  text-align: center;
+  min-height: 1.2em;
+}
+
+/* Dot indicators */
+.lb-dots {
+  display: flex;
+  gap: 0.5rem;
+}
+.lb-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  padding: 0;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+.lb-dot.active {
+  background: #fff;
+  transform: scale(1.4);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .lb-arrow {
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+    margin: 0 0.4rem;
+  }
+  .lb-content {
+    max-width: calc(100vw - 96px);
+  }
+  .lb-img {
+    max-height: 70vh;
+  }
+}
