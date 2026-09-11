@@ -1,6 +1,6 @@
 /* ============================================================
    components.js — Semua HTML component sebagai string konstanta
-   Diload sebelum main.js, tidak butuh server / CORS
+   Tidak butuh server — aman untuk file:// protocol
    ============================================================ */
 const COMP_NAVBAR = `
 <!-- ========================================================
@@ -66,7 +66,7 @@ const COMP_HERO = `
     </div>
     <div class="hero-photo-wrap">
       <div class="photo-frame">
-        <img src="profile.JPG" alt="Foto Profile" />
+        <img src="profile.JPG" alt="Foto Profile"/>
       </div>
     </div>
   </div>
