@@ -126,7 +126,8 @@
 }
 .dot-btn,
 .dot-btn-rt,
-.dot-btn-ec {
+.dot-btn-ec,
+.dot-btn-inv {
   width: 7px;
   height: 7px;
   border-radius: 50%;
@@ -140,7 +141,8 @@
 }
 .dot-btn.active,
 .dot-btn-rt.active,
-.dot-btn-ec.active {
+.dot-btn-ec.active,
+.dot-btn-inv.active {
   background: #fff;
   transform: scale(1.3);
 }

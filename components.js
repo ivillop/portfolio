@@ -95,6 +95,7 @@ const COMP_SKILLS = `
           <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript"/><span>TypeScript</span></div>
           <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java"/><span>Java</span></div>
           <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg" alt="Golang"/><span>Golang</span></div>
+          <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#"/><span>C#</span></div>
         </div>
       </div>
       <div class="tech-group">
@@ -105,6 +106,7 @@ const COMP_SKILLS = `
           <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="TailwindCSS"/><span>TailwindCSS</span></div>
           <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" alt="Laravel"/><span>Laravel</span></div>
           <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring Boot"/><span>Spring Boot</span></div>
+          <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" alt="ASP.NET Core"/><span>ASP.NET Core</span></div>
         </div>
       </div>
     </div>
@@ -257,6 +259,51 @@ const COMP_PROJECTS = `
         </div>
         <div class="project-stack" style="margin-top:1rem">
           <span class="tag">Laravel 13</span><span class="tag">PHP</span><span class="tag">TailwindCSS</span><span class="tag">Blade</span><span class="tag">SQLite</span><span class="tag">Midtrans</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJ_04: Sistem Manajemen Inventaris -->
+    <div class="project-card project-card-featured reveal">
+      <div class="project-screenshots" id="slider-inventaris">
+        <div class="screenshots-track" id="track-inventaris">
+          <img src="projek04-dashboard.jpg" alt="Dashboard Sistem Manajemen Inventaris" class="gallery-img" data-gallery="inventaris" data-idx="0"/>
+          <img src="projek04-barang.jpg"    alt="Daftar Barang & Master Data"           class="gallery-img" data-gallery="inventaris" data-idx="1"/>
+          <img src="projek04-transaksi.jpg" alt="Form Ajukan Transaksi Stok"            class="gallery-img" data-gallery="inventaris" data-idx="2"/>
+        </div>
+        <div class="screenshots-dots">
+          <button class="dot-btn-inv active" data-idx="0"></button>
+          <button class="dot-btn-inv"        data-idx="1"></button>
+          <button class="dot-btn-inv"        data-idx="2"></button>
+        </div>
+        <button class="screenshots-expand" data-gallery="inventaris" data-idx="0" aria-label="Fullscreen">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
+        </button>
+      </div>
+      <div class="project-header" style="padding-top:1.5rem">
+        <span class="project-num">PROJ_04</span>
+        <a href="https://github.com/ivillop/inventory-ms" target="_blank" class="project-link">↗ GitHub</a>
+      </div>
+      <div class="project-body">
+        <div class="project-title" data-i18n="proj4.title">Inventaris — Sistem Manajemen Inventaris</div>
+        <div class="project-desc"  data-i18n="proj4.desc">Aplikasi web manajemen inventaris barang dengan alur persetujuan dua tingkat (Staff → Manager → Admin), dibangun menggunakan ASP.NET Core MVC (.NET 8) sebagai proyek pembelajaran ekosistem .NET. Stok hanya berubah setelah persetujuan final Admin — pengajuan yang belum tuntas tidak memengaruhi angka stok. Seeder otomatis mengisi role, akun contoh, dan data dummy saat aplikasi pertama kali dijalankan.</div>
+        <div class="project-feature-list">
+          <span class="pf-item" data-i18n="proj4.f1">📦 CRUD Kategori, Supplier &amp; Barang</span>
+          <span class="pf-item" data-i18n="proj4.f2">✅ Approval 2 Tingkat (Manager → Admin)</span>
+          <span class="pf-item" data-i18n="proj4.f3">🔐 Role-based Access (Admin, Manager, Staff)</span>
+          <span class="pf-item" data-i18n="proj4.f4">⚠️ Peringatan Stok Minimum</span>
+          <span class="pf-item" data-i18n="proj4.f5">📊 Export Laporan ke Excel (.xlsx)</span>
+          <span class="pf-item" data-i18n="proj4.f6">🌱 Seeder Otomatis Data &amp; Akun</span>
+        </div>
+        <div class="project-stack" style="margin-top:1rem">
+          <span class="tag">ASP.NET Core MVC</span>
+          <span class="tag">C#</span>
+          <span class="tag">.NET 8</span>
+          <span class="tag">Entity Framework Core</span>
+          <span class="tag">ASP.NET Identity</span>
+          <span class="tag">SQLite</span>
+          <span class="tag">Bootstrap 5</span>
+          <span class="tag">ClosedXML</span>
         </div>
       </div>
     </div>

@@ -69,6 +69,14 @@ const translations = {
     "proj3.f3":            "🛠️ Panel Admin",
     "proj3.f4":            "📦 CRUD Produk & Kategori",
     "proj3.f5":            "🔐 Role-based Access",
+    "proj4.title":         "Inventaris — Sistem Manajemen Inventaris",
+    "proj4.desc":          "Aplikasi web manajemen inventaris barang dengan alur persetujuan dua tingkat (Staff → Manager → Admin), dibangun menggunakan ASP.NET Core MVC (.NET 8) sebagai proyek pembelajaran ekosistem .NET. Stok hanya berubah setelah persetujuan final Admin — pengajuan yang belum tuntas tidak memengaruhi angka stok. Seeder otomatis mengisi role, akun contoh, dan data dummy saat aplikasi pertama kali dijalankan.",
+    "proj4.f1":            "📦 CRUD Kategori, Supplier & Barang",
+    "proj4.f2":            "✅ Approval 2 Tingkat (Manager → Admin)",
+    "proj4.f3":            "🔐 Role-based Access (Admin, Manager, Staff)",
+    "proj4.f4":            "⚠️ Peringatan Stok Minimum",
+    "proj4.f5":            "📊 Export Laporan ke Excel (.xlsx)",
+    "proj4.f6":            "🌱 Seeder Otomatis Data & Akun",
     // Experience
     "exp.label":           "03 — Pengalaman",
     "exp.title":           "Perjalanan karier",
@@ -164,6 +172,14 @@ const translations = {
     "proj3.f3":            "🛠️ Admin Panel",
     "proj3.f4":            "📦 Product & Category CRUD",
     "proj3.f5":            "🔐 Role-based Access",
+    "proj4.title":         "Inventaris — Inventory Management System",
+    "proj4.desc":          "Web-based inventory management app with a two-tier approval flow (Staff → Manager → Admin), built with ASP.NET Core MVC (.NET 8) as a .NET ecosystem learning project. Stock only changes after final Admin approval — pending submissions do not affect stock figures. An auto-seeder populates roles, sample accounts, and dummy data on first run.",
+    "proj4.f1":            "📦 CRUD Category, Supplier & Item",
+    "proj4.f2":            "✅ 2-Tier Approval (Manager → Admin)",
+    "proj4.f3":            "🔐 Role-based Access (Admin, Manager, Staff)",
+    "proj4.f4":            "⚠️ Low Stock Warning",
+    "proj4.f5":            "📊 Export Reports to Excel (.xlsx)",
+    "proj4.f6":            "🌱 Auto-seeder for Data & Accounts",
     // Experience
     "exp.label":           "03 — Experience",
     "exp.title":           "Career journey",
@@ -371,6 +387,8 @@ initSlider("#slider-kelola .screenshots-track", "#slider-kelola .dot-btn");
 initSlider("#track-realtime", ".dot-btn-rt");
 // PROJ_03 — Ecommerce (dot-btn-ec)
 initSlider("#track-ecommerce", ".dot-btn-ec");
+// PROJ_04 — Inventaris (dot-btn-inv)
+initSlider("#track-inventaris", ".dot-btn-inv");
 
 // ── CV Download Modal ──
 (function () {
