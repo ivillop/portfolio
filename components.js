@@ -500,7 +500,7 @@ const COMP_CONTACT = `
       <button class="btn btn-primary" id="cvModalTrigger2" data-i18n="hero.cta.cv">⬇ Download CV</button>
     </div>
     <div class="contact-links">
-      <a href="mailto:rd.akbar@yandex.com" class="contact-social" data-i18n="contact.email">Email</a>
+      <a href="mailto:rd.akbar0401@gmail.com" class="contact-social" data-i18n="contact.email">Email</a>
       <a href="https://github.com/ivillop"           target="_blank" class="contact-social">GitHub</a>
       <a href="https://www.linkedin.com/in/ivillop/" target="_blank" class="contact-social">LinkedIn</a>
       <a href="https://wa.link/mqe3ym"               target="_blank" class="contact-social">WhatsApp</a>
